@@ -2,7 +2,7 @@
 #include "i2c.h"
 #include "math.h"
 
-#define BMP180_ADDRESS 0xEE<<1
+#define BMP180_ADDRESS 0xEE
 
 int16_t AC1;
 int16_t AC2;
@@ -15,6 +15,7 @@ int16_t B2;
 int16_t MB;
 int16_t MC;
 int16_t MD;
+double K = 1.26907; // коэффициент для калибровки датчика
 
 long UP,X1,X2,B5,B6,X3,B3,UT;
 unsigned long B4,B7;
@@ -88,7 +89,7 @@ float BMP180_GetPress (void)
 	X1 = (Press/(pow(2,8)))*(Press/(pow(2,8)));
 	X1 = (X1*3038)/(pow(2,16));
 	X2 = (-7357*Press)/(pow(2,16));
-	Press = Press + (X1+X2+3791)/(pow(2,4));
+	Press = (Press + (X1+X2+3791)/(pow(2,4))) * K;
 
 	return Press;
 }
