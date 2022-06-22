@@ -132,6 +132,7 @@ uint8_t volatile  interruptsCount=0;
 uint8_t           intervalOnScreen=0;
 uint32_t volatile period=0;
 uint32_t volatile periodLast=0;
+_Bool volatile irqFlag=0;
 
 char bufUsb[20]; // buffer to send to USB
 float result =0;
@@ -416,8 +417,16 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	if(GPIO_Pin == exti3_Pin) interruptOnSwitch = 3;
 	if(GPIO_Pin == exti4_Pin) interruptOnSwitch = 4;
 	
-	if (interruptOnSwitch)
-	{
+  // disable interrupts to prevent false triggering 
+	// enableExtis() must be placed in endless loop 
+	// to enable interrupts after some time 
+	HAL_NVIC_DisableIRQ(EXTI0_IRQn); 
+	HAL_NVIC_DisableIRQ(EXTI1_IRQn); 
+	HAL_NVIC_DisableIRQ(EXTI9_5_IRQn); 
+	HAL_NVIC_DisableIRQ(EXTI15_10_IRQn); 
+	
+	irqFlag=1;
+	
 		period = HAL_GetTick() - periodLast;
 		periodLast = HAL_GetTick();
 		if (interruptsCount<10)
@@ -425,11 +434,32 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			timeInterv[interruptsCount] = HAL_GetTick() - timeStart; // 
 			interruptsCount++;	
 		}
-	}	
+
+}
+
+void enableExtis (void)
+{
+	if(irqFlag && HAL_GetTick() - periodLast > 100) //if time since last interrupt>100msec  
+	{		
+		irqFlag =0;
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_7);
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_11);
+		NVIC_ClearPendingIRQ(EXTI0_IRQn);
+		NVIC_ClearPendingIRQ(EXTI1_IRQn); 
+		NVIC_ClearPendingIRQ(EXTI9_5_IRQn); 
+		NVIC_ClearPendingIRQ(EXTI15_10_IRQn); 
+		HAL_NVIC_DisableIRQ(EXTI0_IRQn); 
+		HAL_NVIC_DisableIRQ(EXTI1_IRQn); 
+		HAL_NVIC_DisableIRQ(EXTI9_5_IRQn); 
+		HAL_NVIC_DisableIRQ(EXTI15_10_IRQn); 
+	}
 }
 
 void timerTask (void)
 {
+	enableExtis();
 	
 	if (interruptOnSwitch==4) // если нажали пуск
 	{
@@ -597,6 +627,8 @@ void Hx711Task (void)
 	float const scale50N = 50/800000;
 	float const scalePressure = 200/340000; // 
 	float const scaleWeight=1000/300000;
+	
+	enableExtis();
 	
 	rj45_connectors_recognise();
 	for (uint8_t input =0; input<3; input++)
