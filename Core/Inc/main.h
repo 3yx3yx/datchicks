@@ -53,7 +53,36 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void delayUs (uint32_t micros);
+uint8_t getModuleId();
+void sendByteSPI (uint8_t byte)	;
+void displayFloat (float value);
+void hx711clkPulse ();
+uint32_t getValueHX711 (uint8_t input, uint8_t gain);
+float getDS18B20 (void);
+ void luxSensInit (void);
+  float getluxSens (void);
+	 float getTempNTC(uint16_t adcTherm);
+void adcSeq (void); 
+void adcSum (void);
+void adcAverage (void);
+float getVoltage(uint16_t adc);
+float getAHT20 (void)	;
+float getUVIndex (uint16_t adcUV);
+void enableExtis (void);
+void timerTask (void);
+void lcMeterTask (void);
+void rj45_connectors_recognise (void);
+uint32_t hx711Average (uint8_t input, uint8_t gain);
+void Hx711Task (void);
+float getCOppm(uint16_t adc);
+float getOxygenPercent(uint16_t adc);
+float getResistance(void);
+float getVoltageCurrent(void);
+float getNitratSensor(uint16_t adc);
+void spirograph (void);
+void averageAdc_for_N_msec (uint16_t msec);
+void waiting_animation(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
