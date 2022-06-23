@@ -85,9 +85,7 @@ enum modulesId
 	ID_MODULE_NITRATES,
 	ID_MODULE_CO_GAS,
 	ID_MODULE_TEMP_FAST,
-	ID_MODULE_ULTRAV,
-	
-	
+	ID_MODULE_ULTRAV	
 };
 
 enum rj45Modules
@@ -133,13 +131,17 @@ uint8_t           intervalOnScreen=0;
 uint32_t volatile period=0;
 uint32_t volatile periodLast=0;
 _Bool volatile irqFlag=0;
+_Bool volatile  debounceLong = 1;
 
 char bufUsb[20]; // buffer to send to USB
+char bufUsbStatus[20]; // buffer to send to USB
 float result =0;
 unsigned long volatile impulseCount=0;
 _Bool lcMeterStarted=0;
 _Bool volatile timerStopped=0;
 
+	uint32_t sendStatusTime=0; 
+	uint32_t sendTime=0; 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -152,11 +154,8 @@ void delayUs (uint32_t micros)
 	while (micros--);
 }
 
-
-
-
 // returns the module ID (1-24)
-uint8_t getModuleId()  
+uint8_t getModuleId(void)  
 {
 	uint8_t modId=0;
 	//к этим пинам идут перемычки на платах, их нужно запаять как единицы в  номере модуля в двоичной системе исч
@@ -248,7 +247,7 @@ void displayFloat (float value)
 
 
 // HX711 clock pulse 
-void hx711clkPulse ()
+void hx711clkPulse (void)
 {
 	  HAL_GPIO_WritePin(GPIOA, clk_Pin, GPIO_PIN_SET);   
     delayUs(1);
@@ -411,12 +410,12 @@ float getUVIndex (uint16_t adcUV)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if (GPIO_Pin==GPIO_PIN_8){ impulseCount++; return;}  // используется для измерения частоты, если есть прерывание - выходим из функции 
-	
+	interruptOnSwitch = 0;
 	if(GPIO_Pin == exti1_Pin) interruptOnSwitch = 1; 
 	if(GPIO_Pin == exti2_Pin) interruptOnSwitch = 2;
 	if(GPIO_Pin == exti3_Pin) interruptOnSwitch = 3;
-	if(GPIO_Pin == exti4_Pin) interruptOnSwitch = 4;
-	
+
+		debounceLong =0;
   // disable interrupts to prevent false triggering 
 	// enableExtis() must be placed in endless loop 
 	// to enable interrupts after some time 
@@ -434,15 +433,29 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 			timeInterv[interruptsCount] = HAL_GetTick() - timeStart; // 
 			interruptsCount++;	
 		}
+		
+	if(GPIO_Pin == exti4_Pin) {interruptOnSwitch = 4;debounceLong =1;} 
 
 }
 
 void enableExtis (void)
 {
-	if(irqFlag && HAL_GetTick() - periodLast > 100) //if time since last interrupt>100msec  
+	uint16_t debounceTime=20;
+	if(currentModule!=ID_MODULE_TIME || debounceLong) {debounceTime=350;} // if interrupt comes from optical gate then debouncing is not required
+	if(irqFlag && ((HAL_GetTick() - periodLast) > debounceTime) )//if time since last interrupt>100msec  
 	{		
 		irqFlag =0;
-		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
+    clearEXTIs();
+		HAL_NVIC_EnableIRQ(EXTI0_IRQn); 
+		HAL_NVIC_EnableIRQ(EXTI1_IRQn); 
+		HAL_NVIC_EnableIRQ(EXTI9_5_IRQn); 
+		HAL_NVIC_EnableIRQ(EXTI15_10_IRQn); 
+	}
+}
+
+void clearEXTIs (void)
+{
+			__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_0);
 		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_1);
 		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_7);
 		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_11);
@@ -450,11 +463,6 @@ void enableExtis (void)
 		NVIC_ClearPendingIRQ(EXTI1_IRQn); 
 		NVIC_ClearPendingIRQ(EXTI9_5_IRQn); 
 		NVIC_ClearPendingIRQ(EXTI15_10_IRQn); 
-		HAL_NVIC_DisableIRQ(EXTI0_IRQn); 
-		HAL_NVIC_DisableIRQ(EXTI1_IRQn); 
-		HAL_NVIC_DisableIRQ(EXTI9_5_IRQn); 
-		HAL_NVIC_DisableIRQ(EXTI15_10_IRQn); 
-	}
 }
 
 void timerTask (void)
@@ -471,7 +479,7 @@ void timerTask (void)
 			interruptsCount = 0;
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET); // turn on LED
 			timeStart = HAL_GetTick();// начинаем отсчет 
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // сигнал на запуск солениоида 
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // сигнал на запуск солениоида 			
 			sprintf(bufUsb, USB_STRING_FORMAT, ID_MODULE_TIME, 0.0000);
 		  CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
 		}
@@ -491,19 +499,27 @@ void timerTask (void)
 	if(interruptOnSwitch && time_started)
 	{
 	  sprintf(bufUsb, USB_STRING_FORMAT, ID_MODULE_TIME, (float) period/1000); // в порт отправляется время с последнего прерывания 
-		CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+		//CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+					// usb is transmitting one by one here, so we need to check it busy status
+			sendTime = HAL_GetTick();				
+					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
+						if((HAL_GetTick() - sendTime)>3000) break; // timeout
+					}
 	}
 	
 	if (interruptOnSwitch && interruptsCount<10) // на дисплее отображается 10 интервалов от старта 
 	{
-		interruptOnSwitch=0;
+		
 		displayFloat((float)timeInterv[interruptsCount]/1000);
 	}
 	
+	interruptOnSwitch=0;		
+	
+  clearEXTIs();
 	
 	/* для просмотра значений интервалов (сохраняются 10 интервалов со старта) */
 	if(!time_started)
-	{
+	{		
 		_Bool button_pressed=0;
 		signsAllowed=1;
 		//пролистывание кнопками 
@@ -652,7 +668,12 @@ void Hx711Task (void)
 		{
 		  //для входа 1 номер 108, для входа 2 - 208 и тд
 			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
-		  CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+		  
+			// usb is transmitting one by one here, so we need to check it busy status
+			sendTime = HAL_GetTick();				
+					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
+						if((HAL_GetTick() - sendTime)>3000) break; // timeout
+					}
 		}
 	}
 	
@@ -803,6 +824,8 @@ void waiting_animation(void)
 		}		
 	}
 }
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -844,36 +867,51 @@ int main(void)
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
   port_init(); // init DS18B20 pin 
-	uint8_t currentModule_prev =0;
+	uint8_t currentModule_prev =255;
 	_Bool init_needed=0;
-
-	
-	/*до того как придут платы можешь поступить так: закоменти getModuleId, 
-	напиши нужный номер,  припаяй датчик к МК и можешь смотреть в отладчике что с него приходит 
-	отладка ctrl+F5 - потом щелкни правой кн.м на нужную переменную - add to watch
-  в отладчике показываются только глобальные переменные	*/
-	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		
+////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
+//		if(interruptOnSwitch)
+//		currentModule = 0;	
+//		if(interruptOnSwitch == 4)
+//		currentModule = ID_MODULE_VOLTAGE_30V_AC;
+//	
+//		interruptOnSwitch=0;
+//		enableExtis();
+/////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
+		
+
 		currentModule = getModuleId();
+		
 		if (currentModule!=currentModule_prev) 
 			{
-				currentModule_prev = currentModule;
+				
 				init_needed=1;
 				if(currentModule!=0) 
 				{
-					sprintf(bufUsb, "#%d#con#\n", currentModule); 					
+					sprintf(bufUsbStatus, "#%d#con#\n", currentModule); 					
 				}
-				else {sprintf(bufUsb, "#%d#dis#\n", currentModule); }
-				CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));	
+				else {sprintf(bufUsbStatus, "#%d#dis#\n", currentModule_prev);  }		
+				
+				currentModule_prev = currentModule;
 			}
 		else {init_needed=0;}
 		
-		result = 0;
+		if((HAL_GetTick() - sendStatusTime)>3000) // send which module is connected every 3s
+				{
+					sendStatusTime = HAL_GetTick();				
+					while(CDC_Transmit_FS((uint8_t*)bufUsbStatus,strlen(bufUsbStatus))!=USBD_OK){ // wait if usb is busy 
+						if((HAL_GetTick() - sendStatusTime)>3000) break; // timeout
+					}
+				}
+		
+		result = -255; // some unreachable value 
 		switch(currentModule)
 		{	
 			case ID_MODULE_ATM_PRESSURE: 
@@ -974,7 +1012,7 @@ int main(void)
 			default:  waiting_animation();  break;
 		}
 		
-		if(result>0) 
+		if(result!=-255) 
 		{
 			displayFloat(result);
 			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 

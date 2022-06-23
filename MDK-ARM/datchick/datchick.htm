@@ -3,7 +3,7 @@
 <title>Static Call Graph - [datchick\datchick.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image datchick\datchick.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jun 22 02:33:58 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Thu Jun 23 13:59:41 2022
 <BR><P>
 <H3>Maximum Stack Usage =        324 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -465,7 +465,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_calliberation_data
 </UL>
 
@@ -491,8 +491,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[6d]"></a>_printf_int_common</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, _printf_intcommon.o(.text))
@@ -681,8 +681,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Start
 </UL>
 
-<P><STRONG><a name="[88]"></a>BMP180_GetPress</STRONG> (Thumb, 506 bytes, Stack size 40 bytes, bmp180.o(i.BMP180_GetPress))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = BMP180_GetPress &rArr; Get_UPress &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
+<P><STRONG><a name="[88]"></a>BMP180_GetPress</STRONG> (Thumb, 514 bytes, Stack size 40 bytes, bmp180.o(i.BMP180_GetPress))
+<BR><BR>[Stack]<UL><LI>Max Depth = 208<LI>Call Chain = BMP180_GetPress &rArr; Get_UPress &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_UPress
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -723,28 +723,28 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[29]"></a>EXTI0_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.EXTI0_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI0_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = EXTI0_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[4b]"></a>EXTI15_10_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.EXTI15_10_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI15_10_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = EXTI15_10_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[2a]"></a>EXTI1_IRQHandler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.EXTI1_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = EXTI1_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = EXTI1_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
 <P><STRONG><a name="[3a]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, stm32f1xx_it.o(i.EXTI9_5_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = EXTI9_5_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = EXTI9_5_IRQHandler &rArr; HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_IRQHandler
 </UL>
@@ -759,8 +759,8 @@ Global Symbols
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_ResetCallback
 </UL>
 
-<P><STRONG><a name="[89]"></a>Get_UPress</STRONG> (Thumb, 136 bytes, Stack size 40 bytes, bmp180.o(i.Get_UPress))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Get_UPress &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
+<P><STRONG><a name="[89]"></a>Get_UPress</STRONG> (Thumb, 132 bytes, Stack size 32 bytes, bmp180.o(i.Get_UPress))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = Get_UPress &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
@@ -834,8 +834,8 @@ Global Symbols
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rj45_connectors_recognise
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711Average
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_UPress
 </UL>
 
@@ -845,8 +845,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;port_init
 </UL>
 
-<P><STRONG><a name="[a5]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, main.o(i.HAL_GPIO_EXTI_Callback))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = HAL_GPIO_EXTI_Callback
+<P><STRONG><a name="[a5]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 138 bytes, Stack size 16 bytes, main.o(i.HAL_GPIO_EXTI_Callback))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_DisableIRQ
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
@@ -855,7 +855,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9a]"></a>HAL_GPIO_EXTI_IRQHandler</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_EXTI_IRQHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_GPIO_EXTI_IRQHandler &rArr; HAL_GPIO_EXTI_Callback
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
@@ -873,20 +873,19 @@ Global Symbols
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_MspInit
 </UL>
 
-<P><STRONG><a name="[15b]"></a>HAL_GPIO_ReadPin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_ReadPin))
+<P><STRONG><a name="[166]"></a>HAL_GPIO_ReadPin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_ReadPin))
 <BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getModuleId
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
 </UL>
 
 <P><STRONG><a name="[104]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
 <BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waiting_animation
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711clkPulse
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 </UL>
@@ -899,9 +898,11 @@ Global Symbols
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Receive
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_PollForConversion
 <LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;averageAdc_for_N_msec
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Write
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
@@ -933,7 +934,7 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 </UL>
 
 <P><STRONG><a name="[ae]"></a>HAL_I2C_Master_Transmit</STRONG> (Thumb, 290 bytes, Stack size 40 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_Master_Transmit))
@@ -947,7 +948,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;luxSensInit
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 </UL>
 
 <P><STRONG><a name="[9d]"></a>HAL_I2C_Mem_Read</STRONG> (Thumb, 574 bytes, Stack size 64 bytes, stm32f1xx_hal_i2c.o(i.HAL_I2C_Mem_Read))
@@ -958,7 +959,7 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_WaitOnFlagUntilTimeout
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_RequestMemoryRead
 </UL>
-<BR>[Called By]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<BR>[Called By]<UL><LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_calliberation_data
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_UPress
 </UL>
@@ -1014,12 +1015,12 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[a6]"></a>HAL_NVIC_DisableIRQ</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_DisableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
+<BR><BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 
 <P><STRONG><a name="[df]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_OnePulse_MspInit
 </UL>
@@ -1150,8 +1151,8 @@ Global Symbols
 <P><STRONG><a name="[d8]"></a>HAL_PCD_MspInit</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, usbd_conf.o(i.HAL_PCD_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_PCD_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_Init
 </UL>
@@ -1323,8 +1324,8 @@ Global Symbols
 <P><STRONG><a name="[fb]"></a>HAL_TIM_OnePulse_MspInit</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, tim.o(i.HAL_TIM_OnePulse_MspInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = HAL_TIM_OnePulse_MspInit &rArr; HAL_NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_OnePulse_Init
 </UL>
@@ -1348,11 +1349,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f103xb.o(RESET)
 </UL>
-<P><STRONG><a name="[fd]"></a>Hx711Task</STRONG> (Thumb, 278 bytes, Stack size 40 bytes, main.o(i.Hx711Task))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<P><STRONG><a name="[fd]"></a>Hx711Task</STRONG> (Thumb, 308 bytes, Stack size 48 bytes, main.o(i.Hx711Task))
+<BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
 <LI>Call Chain = Hx711Task &rArr; displayFloat &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rj45_connectors_recognise
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711Average
@@ -1379,9 +1381,9 @@ Global Symbols
 <P><STRONG><a name="[109]"></a>MX_GPIO_Init</STRONG> (Thumb, 394 bytes, Stack size 56 bytes, gpio.o(i.MX_GPIO_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MX_GPIO_Init &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
-<LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1970,7 +1972,7 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[7b]"></a>__ARM_fpclassify</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, fpclassify.o(i.__ARM_fpclassify))
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
 <P><STRONG><a name="[136]"></a>__kernel_poly</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
@@ -1979,8 +1981,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[137]"></a>__mathlib_dbl_divzero</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_divzero))
@@ -1988,14 +1990,14 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[138]"></a>__mathlib_dbl_infnan</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_infnan))
 <BR><BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[13a]"></a>__mathlib_dbl_infnan2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_infnan2))
@@ -2003,7 +2005,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
 <P><STRONG><a name="[13b]"></a>__mathlib_dbl_invalid</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_invalid))
@@ -2011,20 +2013,20 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[13c]"></a>__mathlib_dbl_overflow</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_overflow))
 <BR><BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
 <P><STRONG><a name="[13d]"></a>__mathlib_dbl_underflow</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, dunder.o(i.__mathlib_dbl_underflow))
 <BR><BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
 <P><STRONG><a name="[6f]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
@@ -2039,7 +2041,7 @@ Global Symbols
 <LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rj45_connectors_recognise
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;averageAdc_for_N_msec
 </UL>
 
@@ -2059,7 +2061,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcSeq
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rj45_connectors_recognise
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;averageAdc_for_N_msec
 </UL>
 
@@ -2073,11 +2075,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[145]"></a>delayUs</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.delayUs))
+<P><STRONG><a name="[144]"></a>clearEXTIs</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, main.o(i.clearEXTIs))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = clearEXTIs
+</UL>
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_ClearPendingIRQ
+</UL>
+<BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
+</UL>
+
+<P><STRONG><a name="[147]"></a>delayUs</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, main.o(i.delayUs))
 <BR><BR>[Called By]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waiting_animation
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711clkPulse
-<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
+<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
 </UL>
 
@@ -2086,8 +2097,8 @@ Global Symbols
 <LI>Call Chain = displayFloat &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2snprintf
@@ -2098,105 +2109,106 @@ Global Symbols
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 </UL>
 
-<P><STRONG><a name="[146]"></a>ds18b20_Convert</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_Convert))
+<P><STRONG><a name="[148]"></a>ds18b20_Convert</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_Convert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ds18b20_Convert &rArr; __aeabi_fadd
 </UL>
-<BR>[Calls]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<BR>[Calls]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
-</UL>
-
-<P><STRONG><a name="[159]"></a>ds18b20_GetSign</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, ds18b20.o(i.ds18b20_GetSign))
-<BR><BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
+<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
 </UL>
 
-<P><STRONG><a name="[149]"></a>ds18b20_MeasureTemperCmd</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_MeasureTemperCmd))
+<P><STRONG><a name="[15a]"></a>ds18b20_GetSign</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, ds18b20.o(i.ds18b20_GetSign))
+<BR><BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
+</UL>
+
+<P><STRONG><a name="[14b]"></a>ds18b20_MeasureTemperCmd</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_MeasureTemperCmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ds18b20_MeasureTemperCmd &rArr; ds18b20_WriteByte &rArr; ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
+<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
 </UL>
 
-<P><STRONG><a name="[14c]"></a>ds18b20_ReadBit</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_ReadBit))
+<P><STRONG><a name="[14e]"></a>ds18b20_ReadBit</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_ReadBit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ds18b20_ReadBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadByte
+<BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadByte
 </UL>
 
-<P><STRONG><a name="[14e]"></a>ds18b20_ReadByte</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_ReadByte))
+<P><STRONG><a name="[150]"></a>ds18b20_ReadByte</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_ReadByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ds18b20_ReadByte &rArr; ds18b20_ReadBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadBit
+<BR>[Calls]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadBit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
+<BR>[Called By]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
 </UL>
 
-<P><STRONG><a name="[14f]"></a>ds18b20_ReadStratcpad</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_ReadStratcpad))
+<P><STRONG><a name="[151]"></a>ds18b20_ReadStratcpad</STRONG> (Thumb, 44 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_ReadStratcpad))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = ds18b20_ReadStratcpad &rArr; ds18b20_WriteByte &rArr; ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadByte
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
+<BR>[Called By]<UL><LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
 </UL>
 
-<P><STRONG><a name="[14a]"></a>ds18b20_Reset</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_Reset))
+<P><STRONG><a name="[14c]"></a>ds18b20_Reset</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_Reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = ds18b20_Reset &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
+<BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
 </UL>
 
-<P><STRONG><a name="[150]"></a>ds18b20_WriteBit</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_WriteBit))
+<P><STRONG><a name="[152]"></a>ds18b20_WriteBit</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_WriteBit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
+<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
 </UL>
 
-<P><STRONG><a name="[14b]"></a>ds18b20_WriteByte</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_WriteByte))
+<P><STRONG><a name="[14d]"></a>ds18b20_WriteByte</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, ds18b20.o(i.ds18b20_WriteByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = ds18b20_WriteByte &rArr; ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteBit
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
+<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteBit
+<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DelayMicro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
+<BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
 </UL>
 
-<P><STRONG><a name="[151]"></a>ds18b20_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_init))
+<P><STRONG><a name="[153]"></a>ds18b20_init</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, ds18b20.o(i.ds18b20_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = ds18b20_init &rArr; ds18b20_WriteByte &rArr; ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
+<BR>[Calls]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[fe]"></a>enableExtis</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, main.o(i.enableExtis))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = enableExtis
+<P><STRONG><a name="[fe]"></a>enableExtis</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, main.o(i.enableExtis))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = enableExtis &rArr; clearEXTIs
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_DisableIRQ
+<BR>[Calls]<UL><LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_ClearPendingIRQ
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearEXTIs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 </UL>
 
-<P><STRONG><a name="[153]"></a>getAHT20</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, main.o(i.getAHT20))
+<P><STRONG><a name="[154]"></a>getAHT20</STRONG> (Thumb, 110 bytes, Stack size 24 bytes, main.o(i.getAHT20))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = getAHT20 &rArr; HAL_I2C_Master_Receive &rArr; I2C_MasterRequestRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
@@ -2210,58 +2222,50 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[154]"></a>getCOppm</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, main.o(i.getCOppm))
+<P><STRONG><a name="[155]"></a>getCOppm</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, main.o(i.getCOppm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 216<LI>Call Chain = getCOppm &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[158]"></a>getDS18B20</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, main.o(i.getDS18B20))
+<P><STRONG><a name="[159]"></a>getDS18B20</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, main.o(i.getDS18B20))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = getDS18B20 &rArr; ds18b20_ReadStratcpad &rArr; ds18b20_WriteByte &rArr; ds18b20_WriteBit &rArr; DelayMicro
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
-<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_GetSign
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
+<BR>[Calls]<UL><LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadStratcpad
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_MeasureTemperCmd
+<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_GetSign
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15a]"></a>getModuleId</STRONG> (Thumb, 94 bytes, Stack size 16 bytes, main.o(i.getModuleId))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = getModuleId
-</UL>
-<BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
-</UL>
-<BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[15c]"></a>getNitratSensor</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.getNitratSensor))
+<P><STRONG><a name="[15b]"></a>getNitratSensor</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.getNitratSensor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = getNitratSensor &rArr; getVoltage &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15d]"></a>getOxygenPercent</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(i.getOxygenPercent))
+<P><STRONG><a name="[15c]"></a>getOxygenPercent</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(i.getOxygenPercent))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = getOxygenPercent &rArr; getVoltage &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15e]"></a>getRadSens</STRONG> (Thumb, 102 bytes, Stack size 64 bytes, radsens.o(i.getRadSens))
+<P><STRONG><a name="[15d]"></a>getRadSens</STRONG> (Thumb, 102 bytes, Stack size 64 bytes, radsens.o(i.getRadSens))
 <BR><BR>[Stack]<UL><LI>Max Depth = 200<LI>Call Chain = getRadSens &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
@@ -2273,7 +2277,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[15f]"></a>getResistance</STRONG> (Thumb, 288 bytes, Stack size 40 bytes, main.o(i.getResistance))
+<P><STRONG><a name="[15e]"></a>getResistance</STRONG> (Thumb, 288 bytes, Stack size 40 bytes, main.o(i.getResistance))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = getResistance &rArr; adcAverage &rArr; round &rArr; _drnd &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -2282,34 +2286,34 @@ Global Symbols
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[162]"></a>getTempNTC</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, main.o(i.getTempNTC))
+<P><STRONG><a name="[161]"></a>getTempNTC</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, main.o(i.getTempNTC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = getTempNTC &rArr; log &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Calls]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[165]"></a>getUVIndex</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(i.getUVIndex))
+<P><STRONG><a name="[164]"></a>getUVIndex</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(i.getUVIndex))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = getUVIndex &rArr; getVoltage &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
@@ -2319,18 +2323,18 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[166]"></a>getValueHX711</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, main.o(i.getValueHX711))
+<P><STRONG><a name="[165]"></a>getValueHX711</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, main.o(i.getValueHX711))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = getValueHX711 &rArr; hx711clkPulse
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711clkPulse
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;hx711Average
 </UL>
 
-<P><STRONG><a name="[155]"></a>getVoltage</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(i.getVoltage))
+<P><STRONG><a name="[156]"></a>getVoltage</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, main.o(i.getVoltage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = getVoltage &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
@@ -2338,18 +2342,18 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
 </UL>
 
 <P><STRONG><a name="[168]"></a>getVoltageCurrent</STRONG> (Thumb, 186 bytes, Stack size 24 bytes, main.o(i.getVoltageCurrent))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = getVoltageCurrent &rArr; getVoltage &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -2362,7 +2366,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
 <LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Receive
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
@@ -2373,7 +2377,7 @@ Global Symbols
 <P><STRONG><a name="[100]"></a>hx711Average</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, main.o(i.hx711Average))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = hx711Average &rArr; getValueHX711 &rArr; hx711clkPulse
 </UL>
-<BR>[Calls]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
+<BR>[Calls]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
@@ -2383,9 +2387,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = hx711clkPulse
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
 </UL>
-<BR>[Called By]<UL><LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
+<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getValueHX711
 </UL>
 
 <P><STRONG><a name="[16a]"></a>lcMeterTask</STRONG> (Thumb, 268 bytes, Stack size 40 bytes, main.o(i.lcMeterTask))
@@ -2396,9 +2400,9 @@ Global Symbols
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 <LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbn
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
@@ -2410,7 +2414,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[163]"></a>log</STRONG> (Thumb, 808 bytes, Stack size 96 bytes, log.o(i.log))
+<P><STRONG><a name="[162]"></a>log</STRONG> (Thumb, 808 bytes, Stack size 96 bytes, log.o(i.log))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = log &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
@@ -2423,11 +2427,11 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
 </UL>
 
 <P><STRONG><a name="[16d]"></a>luxSensInit</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, main.o(i.luxSensInit))
@@ -2438,7 +2442,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[64]"></a>main</STRONG> (Thumb, 408 bytes, Stack size 16 bytes, main.o(i.main))
+<P><STRONG><a name="[64]"></a>main</STRONG> (Thumb, 490 bytes, Stack size 16 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 248 + Unknown Stack Size
 <LI>Call Chain = main &rArr; lcMeterTask &rArr; pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
@@ -2448,6 +2452,7 @@ Global Symbols
 <LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_ADC1_Init
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Stop
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_Start
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_ADC_PollForConversion
@@ -2459,22 +2464,22 @@ Global Symbols
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
-<LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getModuleId
-<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
+<LI><a href="#[159]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getDS18B20
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
 <LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;averageAdc_for_N_msec
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;port_init
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_init
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_calliberation_data
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
@@ -2493,7 +2498,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[157]"></a>pow</STRONG> (Thumb, 2512 bytes, Stack size 128 bytes, pow.o(i.pow))
+<P><STRONG><a name="[158]"></a>pow</STRONG> (Thumb, 2512 bytes, Stack size 128 bytes, pow.o(i.pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 192<LI>Call Chain = pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
@@ -2510,16 +2515,16 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
 </UL>
 
-<P><STRONG><a name="[16f]"></a>read_calliberation_data</STRONG> (Thumb, 132 bytes, Stack size 40 bytes, bmp180.o(i.read_calliberation_data))
+<P><STRONG><a name="[16f]"></a>read_calliberation_data</STRONG> (Thumb, 130 bytes, Stack size 40 bytes, bmp180.o(i.read_calliberation_data))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = read_calliberation_data &rArr; HAL_I2C_Mem_Read &rArr; I2C_RequestMemoryRead &rArr; I2C_WaitOnMasterAddressFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Mem_Read
@@ -2544,18 +2549,18 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_drnd
 <LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmple
-<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
+<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcAverage
 </UL>
 
-<P><STRONG><a name="[144]"></a>sendByteSPI</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, main.o(i.sendByteSPI))
+<P><STRONG><a name="[146]"></a>sendByteSPI</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, main.o(i.sendByteSPI))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = sendByteSPI
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
 </UL>
 <BR>[Called By]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;waiting_animation
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
@@ -2567,22 +2572,23 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<BR>[Called By]<UL><LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
-<P><STRONG><a name="[170]"></a>timerTask</STRONG> (Thumb, 350 bytes, Stack size 32 bytes, main.o(i.timerTask))
+<P><STRONG><a name="[170]"></a>timerTask</STRONG> (Thumb, 380 bytes, Stack size 32 bytes, main.o(i.timerTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
 <LI>Call Chain = timerTask &rArr; displayFloat &rArr; __2snprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CDC_Transmit_FS
 <LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearEXTIs
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
-<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
+<LI><a href="#[160]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
@@ -2594,8 +2600,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = waiting_animation &rArr; sendByteSPI
 </UL>
 <BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sendByteSPI
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delayUs
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -2615,12 +2621,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 </UL>
 
@@ -2632,13 +2638,13 @@ Global Symbols
 <P><STRONG><a name="[93]"></a>__aeabi_dadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_dadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan2
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[17c]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
@@ -2662,14 +2668,14 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_invalid
 <LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_divzero
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[181]"></a>_ddiv</STRONG> (Thumb, 552 bytes, Stack size 32 bytes, ddiv.o(x$fpl$ddiv), UNUSED)
@@ -2680,7 +2686,7 @@ Global Symbols
 <P><STRONG><a name="[16c]"></a>__aeabi_cdcmpeq</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, deqf.o(x$fpl$deqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_cdcmpeq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[182]"></a>_dcmpeq</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, deqf.o(x$fpl$deqf), UNUSED)
@@ -2712,19 +2718,19 @@ Global Symbols
 <P><STRONG><a name="[8c]"></a>__aeabi_i2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt))
 <BR><BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[1cf]"></a>_dflt</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dflt), UNUSED)
 
 <P><STRONG><a name="[8a]"></a>__aeabi_ui2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu))
 <BR><BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adcAverage
-<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
+<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRadSens
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 </UL>
 
@@ -2751,14 +2757,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getluxSens
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltage
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 <LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[187]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -2793,7 +2799,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
 </UL>
 
 <P><STRONG><a name="[188]"></a>_drcmple</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf), UNUSED)
@@ -2808,14 +2814,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
 </UL>
 
-<P><STRONG><a name="[156]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
+<P><STRONG><a name="[157]"></a>__aeabi_drsub</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_drsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[18a]"></a>_drsb</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, daddsub_clz.o(x$fpl$drsb), UNUSED)
@@ -2831,13 +2837,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 </UL>
 
-<P><STRONG><a name="[164]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
+<P><STRONG><a name="[163]"></a>__aeabi_dsub</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<BR>[Called By]<UL><LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;round
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
 <P><STRONG><a name="[18c]"></a>_dsub</STRONG> (Thumb, 464 bytes, Stack size 32 bytes, daddsub_clz.o(x$fpl$dsub), UNUSED)
@@ -2852,9 +2858,9 @@ Global Symbols
 <LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getCOppm
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
@@ -2865,10 +2871,10 @@ Global Symbols
 <LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dretinf
 </UL>
 
-<P><STRONG><a name="[148]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
+<P><STRONG><a name="[14a]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
 </UL>
 
 <P><STRONG><a name="[18f]"></a>_fadd</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fadd), UNUSED)
@@ -2880,17 +2886,17 @@ Global Symbols
 <P><STRONG><a name="[191]"></a>__fpl_fcheck_NaN1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, fcheck1.o(x$fpl$fcheck1))
 <BR><BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_return_NaN
 </UL>
-<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
+<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_scalbnf
 </UL>
 
-<P><STRONG><a name="[161]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
+<P><STRONG><a name="[160]"></a>__aeabi_fdiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fdiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
 <LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
 </UL>
 
 <P><STRONG><a name="[192]"></a>_fdiv</STRONG> (Thumb, 384 bytes, Stack size 16 bytes, fdiv.o(x$fpl$fdiv), UNUSED)
@@ -2898,17 +2904,17 @@ Global Symbols
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fnaninf
 </UL>
 
-<P><STRONG><a name="[160]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
-<BR><BR>[Called By]<UL><LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<P><STRONG><a name="[15f]"></a>__aeabi_i2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt))
+<BR><BR>[Called By]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
 </UL>
 
 <P><STRONG><a name="[1d1]"></a>_fflt</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$fflt), UNUSED)
 
 <P><STRONG><a name="[90]"></a>__aeabi_ui2f</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu))
 <BR><BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timerTask
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 </UL>
 
@@ -2918,11 +2924,11 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getVoltageCurrent
-<LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
-<LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
+<LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getTempNTC
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getResistance
+<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getOxygenPercent
+<LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getNitratSensor
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;displayFloat
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMP180_GetPress
 </UL>
@@ -2950,7 +2956,7 @@ Global Symbols
 <P><STRONG><a name="[101]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub_clz.o(x$fpl$fsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
+<BR>[Called By]<UL><LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getUVIndex
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Hx711Task
 </UL>
 
@@ -2978,18 +2984,18 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcheck_NaN1
 </UL>
 <BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcMeterTask
-<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getAHT20
 <LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
 <LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_infnan
-<LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
-<LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
+<LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pow
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;log
 </UL>
 
-<P><STRONG><a name="[147]"></a>__ARM_scalbnf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, scalbnf.o(x$fpl$scalbnf))
+<P><STRONG><a name="[149]"></a>__ARM_scalbnf</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, scalbnf.o(x$fpl$scalbnf))
 <BR><BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_fcheck_NaN1
 </UL>
-<BR>[Called By]<UL><LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
+<BR>[Called By]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Convert
 </UL>
 
 <P><STRONG><a name="[196]"></a>__fpl_cmpreturn</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, trapv.o(x$fpl$trapveneer))
@@ -2999,17 +3005,17 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[14d]"></a>DelayMicro</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, ds18b20.o(i.DelayMicro))
+<P><STRONG><a name="[14f]"></a>DelayMicro</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, ds18b20.o(i.DelayMicro))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = DelayMicro
 </UL>
-<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteBit
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadBit
+<BR>[Called By]<UL><LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteByte
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_WriteBit
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_Reset
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ds18b20_ReadBit
 </UL>
 
-<P><STRONG><a name="[152]"></a>__NVIC_ClearPendingIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.__NVIC_ClearPendingIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;enableExtis
+<P><STRONG><a name="[145]"></a>__NVIC_ClearPendingIRQ</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.__NVIC_ClearPendingIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clearEXTIs
 </UL>
 
 <P><STRONG><a name="[125]"></a>IntToUnicode</STRONG> (Thumb, 56 bytes, Stack size 20 bytes, usbd_desc.o(i.IntToUnicode))

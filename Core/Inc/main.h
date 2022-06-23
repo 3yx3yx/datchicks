@@ -54,10 +54,10 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void delayUs (uint32_t micros);
-uint8_t getModuleId();
+uint8_t getModuleId(void);
 void sendByteSPI (uint8_t byte)	;
 void displayFloat (float value);
-void hx711clkPulse ();
+void hx711clkPulse (void);
 uint32_t getValueHX711 (uint8_t input, uint8_t gain);
 float getDS18B20 (void);
  void luxSensInit (void);
@@ -69,6 +69,7 @@ void adcAverage (void);
 float getVoltage(uint16_t adc);
 float getAHT20 (void)	;
 float getUVIndex (uint16_t adcUV);
+void clearEXTIs (void);
 void enableExtis (void);
 void timerTask (void);
 void lcMeterTask (void);
