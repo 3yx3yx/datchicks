@@ -186,7 +186,6 @@ void sendByteSPI (uint8_t byte)
 		byte<<=1;
 		delayUs(10);
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(mosi_soft_GPIO_Port, mosi_soft_Pin, GPIO_PIN_RESET);		
 	}
 	
 }
