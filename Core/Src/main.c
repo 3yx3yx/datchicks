@@ -165,7 +165,7 @@ uint8_t getModuleId(void)
 	if (!HAL_GPIO_ReadPin(id4_GPIO_Port,id4_Pin))  {modId+=1;modId<<=1;}
 	if (!HAL_GPIO_ReadPin(id5_GPIO_Port,id5_Pin))  {modId+=1;modId<<=1;}
 	
-	return modId; // inverted 
+	return modId; 
 }
 
 // программный spi т.к пришлось переносить проект с С6 камня
@@ -194,7 +194,7 @@ void sendByteSPI (uint8_t byte)
 void displayFloat (float value)
 {	
 	uint8_t shiftBuf[3]={0};	
-	char numberStr[4]={0};
+	char numberStr[10]={0};
 	uint8_t pos=0; // position of digit (0-2)
 	
 	if (signsAllowed)
@@ -242,7 +242,7 @@ void displayFloat (float value)
 		//	HAL_SPI_Transmit(&hspi1, shiftBuf, 3, 1000);  // send to shift reg
 	    for (uint8_t i =0; i<3; i++) { sendByteSPI(shiftBuf[i]);}
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			delayUs(10);
+			delayUs(100);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 }
 
@@ -820,6 +820,11 @@ void waiting_animation(void)
 			delayUs(100);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 			HAL_Delay(500);
+			for (uint8_t j=0; j<3; j++) sendByteSPI(0x0);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
+			delayUs(100);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+						HAL_Delay(500);
 		}		
 
 }
@@ -868,15 +873,15 @@ int main(void)
   port_init(); // init DS18B20 pin 
 	uint8_t currentModule_prev =255;
 	_Bool init_needed=0;
+	
+	///if ((hUsbDevice_0->dev_state != USBD_STATE_CONFIGURED)
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-		
+waiting_animation();
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)
 //		currentModule = 0;	
@@ -885,10 +890,10 @@ int main(void)
 //	
 //		interruptOnSwitch=0;
 //		enableExtis();
-/////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
-		
+///////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
+//		
 
-//		currentModule = getModuleId();
+//		//currentModule = getModuleId();
 //		
 //		if (currentModule!=currentModule_prev) 
 //			{
@@ -907,7 +912,8 @@ int main(void)
 //		if((HAL_GetTick() - sendStatusTime)>3000) // send which module is connected every 3s
 //				{
 //					sendStatusTime = HAL_GetTick();				
-//					while(CDC_Transmit_FS((uint8_t*)bufUsbStatus,strlen(bufUsbStatus))!=USBD_OK){ // wait if usb is busy 
+//				
+//					while(CDC_Transmit_FS((uint8_t*)bufUsbStatus,strlen(bufUsbStatus))==USBD_BUSY){ // wait if usb is busy 
 //						if((HAL_GetTick() - sendStatusTime)>3000) break; // timeout
 //					}
 //				}
@@ -1019,7 +1025,7 @@ int main(void)
 //			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
 //			CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
 //		}
-		
+//		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
