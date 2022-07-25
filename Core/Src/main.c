@@ -146,6 +146,7 @@ _Bool volatile timerStopped=0;
 	uint8_t shiftBuf[3]={0};	
 	char numberStr[10]={0};
 	
+	_Bool USBconnected=0;
 	
 /* USER CODE END PV */
 
@@ -874,7 +875,7 @@ int main(void)
 	uint8_t currentModule_prev =255;
 	_Bool init_needed=0;
 	
-	///if ((hUsbDevice_0->dev_state != USBD_STATE_CONFIGURED)
+//if ((&hUsbDeviceFS->dev_state != USBD_STATE_CONFIGURED)
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -894,7 +895,7 @@ int main(void)
 //		
 
 
-		
+		currentModule = getModuleId();		
 //		if (currentModule!=currentModule_prev) 
 //			{
 //				
@@ -918,6 +919,7 @@ int main(void)
 //					}
 //				}
 		
+
 		result = -255; // some unreachable value 
 		switch(currentModule)
 		{	
@@ -1023,7 +1025,7 @@ int main(void)
 		{
 			displayFloat(result);
 			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
-//			CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+		//	CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
 		}
 		
     /* USER CODE END WHILE */
