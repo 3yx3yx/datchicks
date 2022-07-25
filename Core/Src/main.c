@@ -184,7 +184,7 @@ void sendByteSPI (uint8_t byte)
 		
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_SET);	
 		byte<<=1;
-		delayUs(10);
+		delayUs(100);
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_RESET);
 	}
 	
@@ -811,19 +811,17 @@ void averageAdc_for_N_msec (uint16_t msec)
 
 void waiting_animation(void)
 {
-	for (uint8_t j=0; j<3; j++)
-	{
-		uint8_t shiftBuf[3] = {0x1};
-		for (uint8_t i =0; i<8; i++)
+    uint8_t byte = 0x1;
+		for (uint8_t i =0; i<7; i++)
 		{
-			shiftBuf[j]<<=1;
-			 for (uint8_t i =0; i<3; i++) { sendByteSPI(shiftBuf[i]);}
+			byte<<=1;
+			for (uint8_t j=0; j<3; j++) sendByteSPI(byte);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			delayUs(10);
+			delayUs(100);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
-			HAL_Delay(30);
+			HAL_Delay(500);
 		}		
-	}
+
 }
 
 
@@ -877,12 +875,7 @@ int main(void)
   while (1)
   {
 
-		uint8_t bytes[3] = {0x79,0x33,0x6B};
-		for (uint8_t i=0; i<3; i++) sendByteSPI(bytes[i]);
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-		delayUs(10);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
-			HAL_Delay(30);
+
 		
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)
