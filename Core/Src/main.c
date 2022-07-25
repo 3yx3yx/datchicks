@@ -171,6 +171,7 @@ uint8_t getModuleId(void)
 // программный spi т.к пришлось переносить проект с С6 камня
 void sendByteSPI (uint8_t byte)	
 {
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 	for(uint8_t i =0; i<8; i++)
 	{
 		if (byte & 0x80) 
@@ -181,7 +182,7 @@ void sendByteSPI (uint8_t byte)
 		{
 			HAL_GPIO_WritePin(mosi_soft_GPIO_Port, mosi_soft_Pin, GPIO_PIN_RESET);
 		}
-		
+		delayUs(100);
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_SET);	
 		byte<<=1;
 		delayUs(100);
@@ -817,14 +818,10 @@ void waiting_animation(void)
 			byte<<=1;
 			for (uint8_t j=0; j<3; j++) sendByteSPI(byte);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			delayUs(100);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
 			HAL_Delay(500);
 			for (uint8_t j=0; j<3; j++) sendByteSPI(0x0);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			delayUs(100);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
-						HAL_Delay(500);
+			HAL_Delay(500);
 		}		
 
 }
