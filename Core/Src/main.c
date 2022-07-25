@@ -142,6 +142,11 @@ _Bool volatile timerStopped=0;
 
 	uint32_t sendStatusTime=0; 
 	uint32_t sendTime=0; 
+/////////////////////////////////
+	uint8_t shiftBuf[3]={0};	
+	char numberStr[10]={0};
+	
+	
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -159,11 +164,11 @@ uint8_t getModuleId(void)
 {
 	uint8_t modId=0;
 	//к этим пинам идут перемычки на платах, их нужно запаять как единицы в  номере модуля в двоичной системе исч
-	if (!HAL_GPIO_ReadPin(id1_GPIO_Port,id1_Pin))  {modId+=1;modId<<=1;}
-	if (!HAL_GPIO_ReadPin(id2_GPIO_Port,id2_Pin))  {modId+=1;modId<<=1;}
-	if (!HAL_GPIO_ReadPin(id3_GPIO_Port,id3_Pin))  {modId+=1;modId<<=1;}
-	if (!HAL_GPIO_ReadPin(id4_GPIO_Port,id4_Pin))  {modId+=1;modId<<=1;}
-	if (!HAL_GPIO_ReadPin(id5_GPIO_Port,id5_Pin))  {modId+=1;modId<<=1;}
+	if (!HAL_GPIO_ReadPin(id1_GPIO_Port,id1_Pin))  {modId |= 0x1;}
+	if (!HAL_GPIO_ReadPin(id2_GPIO_Port,id2_Pin))  {modId |= 0x2;}
+	if (!HAL_GPIO_ReadPin(id3_GPIO_Port,id3_Pin))  {modId |= 0x4;}
+	if (!HAL_GPIO_ReadPin(id4_GPIO_Port,id4_Pin))  {modId |= 0x8;}
+	if (!HAL_GPIO_ReadPin(id5_GPIO_Port,id5_Pin))  {modId |= 0x10;}
 	
 	return modId; 
 }
@@ -182,10 +187,10 @@ void sendByteSPI (uint8_t byte)
 		{
 			HAL_GPIO_WritePin(mosi_soft_GPIO_Port, mosi_soft_Pin, GPIO_PIN_RESET);
 		}
-		delayUs(100);
+		delayUs(10);
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_SET);	
 		byte<<=1;
-		delayUs(100);
+		delayUs(10);
 		HAL_GPIO_WritePin(clk_soft_GPIO_Port, clk_soft_Pin, GPIO_PIN_RESET);
 	}
 	
@@ -194,8 +199,8 @@ void sendByteSPI (uint8_t byte)
 // display first 3 digits of float value  on 7-segment  
 void displayFloat (float value)
 {	
-	uint8_t shiftBuf[3]={0};	
-	char numberStr[10]={0};
+//	uint8_t shiftBuf[3]={0};	
+	//char numberStr[10]={0};
 	uint8_t pos=0; // position of digit (0-2)
 	
 	if (signsAllowed)
@@ -222,18 +227,18 @@ void displayFloat (float value)
 	{
 		switch (numberStr[i])
 		{
-			case '.': if(pos!=0){pos--; shiftBuf[pos] |= 0x4;}// add point to previous symbol
+			case '.': if(pos!=0){pos--; shiftBuf[pos] |= 0x20;}// add point to previous symbol
 						 break; 
-			case '0': shiftBuf[pos] = 0xFA; break;
-			case '1': shiftBuf[pos] = 0x30; break;
-			case '2': shiftBuf[pos] = 0xD9; break;
-			case '3': shiftBuf[pos] = 0x79; break;
-			case '4': shiftBuf[pos] = 0x33; break;
-			case '5': shiftBuf[pos] = 0x6B; break;
-			case '6': shiftBuf[pos] = 0xEB; break;
-			case '7': shiftBuf[pos] = 0x38; break;
-			case '8': shiftBuf[pos] = 0xFB; break;
-			case '9': shiftBuf[pos] = 0x7B; break;
+			case '0': shiftBuf[pos] = 0xD7; break;
+			case '1': shiftBuf[pos] = 0x81; break;
+			case '2': shiftBuf[pos] = 0xCE; break;
+			case '3': shiftBuf[pos] = 0xCB; break;
+			case '4': shiftBuf[pos] = 0x99; break;
+			case '5': shiftBuf[pos] = 0x5E; break;
+			case '6': shiftBuf[pos] = 0x5F; break;
+			case '7': shiftBuf[pos] = 0xC1; break;
+			case '8': shiftBuf[pos] = 0xDF; break;
+			case '9': shiftBuf[pos] = 0xDB; break;
 			default: shiftBuf[pos]=0;break;
 		}
 		pos++;
@@ -242,9 +247,7 @@ void displayFloat (float value)
 	
 		//	HAL_SPI_Transmit(&hspi1, shiftBuf, 3, 1000);  // send to shift reg
 	    for (uint8_t i =0; i<3; i++) { sendByteSPI(shiftBuf[i]);}
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			delayUs(100);
-			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // on latch pin 
 }
 
 
@@ -814,14 +817,14 @@ void waiting_animation(void)
 {
     uint8_t byte = 0x1;
 		for (uint8_t i =0; i<7; i++)
-		{
-			byte<<=1;
+		{		
 			for (uint8_t j=0; j<3; j++) sendByteSPI(byte);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			HAL_Delay(500);
+			HAL_Delay(10);
 			for (uint8_t j=0; j<3; j++) sendByteSPI(0x0);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			HAL_Delay(500);
+			HAL_Delay(10);
+			byte<<=1;
 		}		
 
 }
@@ -878,7 +881,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-waiting_animation();
+
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)
 //		currentModule = 0;	
@@ -890,8 +893,8 @@ waiting_animation();
 ///////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
 //		
 
-//		//currentModule = getModuleId();
-//		
+
+		
 //		if (currentModule!=currentModule_prev) 
 //			{
 //				
@@ -914,115 +917,115 @@ waiting_animation();
 //						if((HAL_GetTick() - sendStatusTime)>3000) break; // timeout
 //					}
 //				}
-//		
-//		result = -255; // some unreachable value 
-//		switch(currentModule)
-//		{	
-//			case ID_MODULE_ATM_PRESSURE: 
-//				if(init_needed) {read_calliberation_data();}  
-//				result = BMP180_GetPress();
-//				HAL_Delay(2000);
-//				break;
-//			case ID_MODULE_HUMIDITY: 
-//				result=getAHT20();  
-//				HAL_Delay(2000);			
-//				break;
-//			case ID_MODULE_TIME: 
-//				timerTask(); 
-//				break;
-//			case ID_MODULE_DIF_PRESSURE: 
-//				Hx711Task(); 
-//				break;
-//			case ID_MODULE_INDUCTANCE: 
-//				lcMeterTask();  
-//				break;
-//			case ID_MODULE_RADIATION: 
-//				result = getRadSens();
-//				break;
-//			case ID_MODULE_WEIGHT: 
-//				Hx711Task(); 
-//				break;
-//			case ID_MODULE_LIGHT: 
-//				if(init_needed) luxSensInit();
-//				result = getluxSens();	
-//				break;
-//			case ID_MODULE_FORCE: 
-//				Hx711Task();  
-//				break;
-//			case ID_MODULE_TEMP: 
-//				if(init_needed) ds18b20_init(SKIP_ROM);
-//				result = getDS18B20();
-//				break;
-//			case ID_MODULE_RESISTANCE: 
-//				result = getResistance();  
-//				break;
-//			case ID_MODULE_CAPACITY: 
-//				lcMeterTask();  
-//				break;
-//			case ID_MODULE_CURRENT_2MA: 
-//				averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_CURRENT_200MA:
-//				averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_CURRENT_10A:
-//								averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_CURRENT_1A_AC:
-//								averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_VOLTAGE_200MV:
-//								averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_VOLTAGE_30V: 
-//				averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_VOLTAGE_30V_AC:
-//				averageAdc_for_N_msec(500);
-//				result = getVoltageCurrent();
-//				break;
-//			case ID_MODULE_SPIROMETER: 
-//				spirograph();  
-//				break;
-//			case ID_MODULE_OXYGEN:
-//				averageAdc_for_N_msec(2500);
-//				result = getOxygenPercent(adc[0]);
-//				break;
-//			case ID_MODULE_NITRATES:
-//				averageAdc_for_N_msec(1500);
-//				result = getNitratSensor(adc[0]);
-//				break;
-//			case ID_MODULE_CO_GAS: 
-//				averageAdc_for_N_msec(2500);
-//				result = getCOppm(adc[0]);
-//				break;
-//			case ID_MODULE_TEMP_FAST:
-//				HAL_ADC_Start(&hadc1);
-//				HAL_ADC_PollForConversion(&hadc1, 100);
-//				adc[0] = HAL_ADC_GetValue(&hadc1);
-//				HAL_ADC_Stop(&hadc1);
-//				result = getTempNTC(adc[0]);
-//				break;
-//			case ID_MODULE_ULTRAV:
-//				averageAdc_for_N_msec(1500);
-//				result = getUVIndex(adc[0]);
-//				break;
-//			default:  waiting_animation();  break;
-//		}
-//		
-//		if(result!=-255) 
-//		{
-//			displayFloat(result);
-//			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
+		
+		result = -255; // some unreachable value 
+		switch(currentModule)
+		{	
+			case ID_MODULE_ATM_PRESSURE: 
+				if(init_needed) {read_calliberation_data();}  
+				result = BMP180_GetPress();
+				HAL_Delay(2000);
+				break;
+			case ID_MODULE_HUMIDITY: 
+				result=getAHT20();  
+				HAL_Delay(2000);			
+				break;
+			case ID_MODULE_TIME: 
+				timerTask(); 
+				break;
+			case ID_MODULE_DIF_PRESSURE: 
+				Hx711Task(); 
+				break;
+			case ID_MODULE_INDUCTANCE: 
+				lcMeterTask();  
+				break;
+			case ID_MODULE_RADIATION: 
+				result = getRadSens();
+				break;
+			case ID_MODULE_WEIGHT: 
+				Hx711Task(); 
+				break;
+			case ID_MODULE_LIGHT: 
+				if(init_needed) luxSensInit();
+				result = getluxSens();	
+				break;
+			case ID_MODULE_FORCE: 
+				Hx711Task();  
+				break;
+			case ID_MODULE_TEMP: 
+				if(init_needed) ds18b20_init(SKIP_ROM);
+				result = getDS18B20();
+				break;
+			case ID_MODULE_RESISTANCE: 
+				result = getResistance();  
+				break;
+			case ID_MODULE_CAPACITY: 
+				lcMeterTask();  
+				break;
+			case ID_MODULE_CURRENT_2MA: 
+				averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_CURRENT_200MA:
+				averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_CURRENT_10A:
+								averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_CURRENT_1A_AC:
+								averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_VOLTAGE_200MV:
+								averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_VOLTAGE_30V: 
+				averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_VOLTAGE_30V_AC:
+				averageAdc_for_N_msec(500);
+				result = getVoltageCurrent();
+				break;
+			case ID_MODULE_SPIROMETER: 
+				spirograph();  
+				break;
+			case ID_MODULE_OXYGEN:
+				averageAdc_for_N_msec(2500);
+				result = getOxygenPercent(adc[0]);
+				break;
+			case ID_MODULE_NITRATES:
+				averageAdc_for_N_msec(1500);
+				result = getNitratSensor(adc[0]);
+				break;
+			case ID_MODULE_CO_GAS: 
+				averageAdc_for_N_msec(2500);
+				result = getCOppm(adc[0]);
+				break;
+			case ID_MODULE_TEMP_FAST:
+				HAL_ADC_Start(&hadc1);
+				HAL_ADC_PollForConversion(&hadc1, 100);
+				adc[0] = HAL_ADC_GetValue(&hadc1);
+				HAL_ADC_Stop(&hadc1);
+				result = getTempNTC(adc[0]);
+				break;
+			case ID_MODULE_ULTRAV:
+				averageAdc_for_N_msec(1500);
+				result = getUVIndex(adc[0]);
+				break;
+			default:  waiting_animation();  break;
+		}
+		
+		if(result!=-255) 
+		{
+			displayFloat(result);
+			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
 //			CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
-//		}
-//		
+		}
+		
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
