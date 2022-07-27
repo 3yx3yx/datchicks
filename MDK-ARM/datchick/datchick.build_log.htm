@@ -28,13 +28,15 @@ Project File Date:  07/22/2022
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'datchick'
 compiling main.c...
-../Core/Src/main.c(876): warning:  #177-D: variable "currentModule_prev"  was declared but never referenced
+../Core/Src/main.c(886): warning:  #177-D: variable "currentModule_prev"  was declared but never referenced
   	uint8_t currentModule_prev =255;
-../Core/Src/main.c: 1 warning, 0 errors
+../Core/Src/main.c(887): warning:  #177-D: variable "init_needed"  was declared but never referenced
+  	_Bool init_needed=0;
+../Core/Src/main.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=38898 RO-data=670 RW-data=520 ZI-data=6456  
+Program Size: Code=16274 RO-data=294 RW-data=436 ZI-data=6444  
 FromELF: creating hex file...
-"datchick\datchick.axf" - 0 Error(s), 1 Warning(s).
+"datchick\datchick.axf" - 0 Error(s), 2 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -58,7 +60,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:05
+Build Time Elapsed:  00:00:06
 </pre>
 </body>
 </html>

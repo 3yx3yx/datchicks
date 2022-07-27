@@ -235,7 +235,7 @@ void displayFloat (float value)
 			case '2': shiftBuf[pos] = 0xCE; break;
 			case '3': shiftBuf[pos] = 0xCB; break;
 			case '4': shiftBuf[pos] = 0x99; break;
-			case '5': shiftBuf[pos] = 0x5E; break;
+			case '5': shiftBuf[pos] = 0x5B; break;
 			case '6': shiftBuf[pos] = 0x5F; break;
 			case '7': shiftBuf[pos] = 0xC1; break;
 			case '8': shiftBuf[pos] = 0xDF; break;
@@ -256,9 +256,9 @@ void displayFloat (float value)
 void hx711clkPulse (void)
 {
 	  HAL_GPIO_WritePin(GPIOA, clk_Pin, GPIO_PIN_SET);   
-    delayUs(1);
+    delayUs(10);
     HAL_GPIO_WritePin(GPIOA, clk_Pin, GPIO_PIN_RESET);
-    delayUs(1);
+    delayUs(5);
 }
 // gets value from HX711 weight module connected to input (1-3) 
 // gain can be set to 128 or 64 on channel A, or to 32 but only on channel B (see datasheet)
@@ -281,9 +281,12 @@ uint32_t getValueHX711 (uint8_t input, uint8_t gain)
   }
   for(int8_t i=0; i<24 ; i++) // read 24 bit value
   {
-		hx711clkPulse();
-    data <<= 1;    
-    if(HAL_GPIO_ReadPin(GPIOA, dataPin)) {data ++;}		
+		HAL_GPIO_WritePin(GPIOA, clk_Pin, GPIO_PIN_SET);   
+    delayUs(10);
+    if(HAL_GPIO_ReadPin(GPIOA, dataPin)) {data ++;}	
+		data <<= 1;	
+		HAL_GPIO_WritePin(GPIOA, clk_Pin, GPIO_PIN_RESET);
+		delayUs(5);
   }
   data ^= 0x800000; 
   hx711clkPulse(); // if gain==128 by default 
@@ -639,68 +642,76 @@ uint32_t hx711Average (uint8_t input, uint8_t gain)
 
 void Hx711Task (void)
 {
-	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придетс€ подобрать усиление. по умолч. 128 
-	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
-	float const scale1N =  1/200000; // подставить значени€ полученные экспериментально: например подвесить груз в 1Ќ и записать показани€ hx711
-	float const scale5N =  5/1000000;
-	float const scale50N = 50/800000;
-	float const scalePressure = 200/340000; // 
-	float const scaleWeight=1000/300000;
 	
-	enableExtis();
+	hx711Value[0]= getValueHX711(1,128);
 	
-	rj45_connectors_recognise();
-	for (uint8_t input =0; input<3; input++)
-	{	
-		switch (rj45_connected[input])
-		{
-			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
-			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
-			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
-			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
-			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
-			default: hx711Value[input]=0;
-		}
-		
-		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нул€
-		
-		hx711Value[input] -= offset[input];
-		
-		
-		if(rj45_connected[input]!=0)
-		{
-		  //дл€ входа 1 номер 108, дл€ входа 2 - 208 и тд
-			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
-		  
-			// usb is transmitting one by one here, so we need to check it busy status
-			sendTime = HAL_GetTick();				
-					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
-						if((HAL_GetTick() - sendTime)>3000) break; // timeout
-					}
-		}
-	}
 	
-	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
-	if(valueOnScreen>2) {valueOnScreen=0;}
-	signsAllowed=1;
-	displayFloat(hx711Value[valueOnScreen]);
 	
-	// show which value is on the display
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
-	switch (valueOnScreen)
-  {
-  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
-  		break;
-  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
-  		break;
-  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
-  		break;
-  }
+	
+	
+	
+//	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придетс€ подобрать усиление. по умолч. 128 
+//	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
+//	float const scale1N =  1/200000; // подставить значени€ полученные экспериментально: например подвесить груз в 1Ќ и записать показани€ hx711
+//	float const scale5N =  5/1000000;
+//	float const scale50N = 50/800000;
+//	float const scalePressure = 200/340000; // 
+//	float const scaleWeight=1000/300000;
+//	
+//	enableExtis();
+//	
+//	rj45_connectors_recognise();
+//	for (uint8_t input =0; input<3; input++)
+//	{	
+//		switch (rj45_connected[input])
+//		{
+//			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
+//			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
+//			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
+//			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
+//			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
+//			default: hx711Value[input]=0;
+//		}
+//		
+//		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нул€
+//		
+//		hx711Value[input] -= offset[input];
+//		
+//		
+//		if(rj45_connected[input]!=0)
+//		{
+//		  //дл€ входа 1 номер 108, дл€ входа 2 - 208 и тд
+//			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
+//		  
+//			// usb is transmitting one by one here, so we need to check it busy status
+//			sendTime = HAL_GetTick();				
+//					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
+//						if((HAL_GetTick() - sendTime)>3000) break; // timeout
+//					}
+//		}
+//	}
+//	
+//	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
+//	if(valueOnScreen>2) {valueOnScreen=0;}
+//	signsAllowed=1;
+//	displayFloat(hx711Value[valueOnScreen]);
+//	
+//	// show which value is on the display
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
+//	switch (valueOnScreen)
+//  {
+//  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
+//  		break;
+//  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
+//  		break;
+//  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
+//  		break;
+//  }
 }
 
 float getCOppm(uint16_t adc)
@@ -821,10 +832,10 @@ void waiting_animation(void)
 		{		
 			for (uint8_t j=0; j<3; j++) sendByteSPI(byte);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			HAL_Delay(10);
+			HAL_Delay(100);
 			for (uint8_t j=0; j<3; j++) sendByteSPI(0x0);
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_4, GPIO_PIN_SET);  // toggle latch pin 
-			HAL_Delay(10);
+			HAL_Delay(100);
 			byte<<=1;
 		}		
 
@@ -896,6 +907,10 @@ int main(void)
 
 
 		currentModule = getModuleId();		
+		
+		hx711Value[0]= getValueHX711(1,128);
+		
+		HAL_Delay(500);
 //		if (currentModule!=currentModule_prev) 
 //			{
 //				
@@ -920,113 +935,113 @@ int main(void)
 //				}
 		
 
-		result = -255; // some unreachable value 
-		switch(currentModule)
-		{	
-			case ID_MODULE_ATM_PRESSURE: 
-				if(init_needed) {read_calliberation_data();}  
-				result = BMP180_GetPress();
-				HAL_Delay(2000);
-				break;
-			case ID_MODULE_HUMIDITY: 
-				result=getAHT20();  
-				HAL_Delay(2000);			
-				break;
-			case ID_MODULE_TIME: 
-				timerTask(); 
-				break;
-			case ID_MODULE_DIF_PRESSURE: 
-				Hx711Task(); 
-				break;
-			case ID_MODULE_INDUCTANCE: 
-				lcMeterTask();  
-				break;
-			case ID_MODULE_RADIATION: 
-				result = getRadSens();
-				break;
-			case ID_MODULE_WEIGHT: 
-				Hx711Task(); 
-				break;
-			case ID_MODULE_LIGHT: 
-				if(init_needed) luxSensInit();
-				result = getluxSens();	
-				break;
-			case ID_MODULE_FORCE: 
-				Hx711Task();  
-				break;
-			case ID_MODULE_TEMP: 
-				if(init_needed) ds18b20_init(SKIP_ROM);
-				result = getDS18B20();
-				break;
-			case ID_MODULE_RESISTANCE: 
-				result = getResistance();  
-				break;
-			case ID_MODULE_CAPACITY: 
-				lcMeterTask();  
-				break;
-			case ID_MODULE_CURRENT_2MA: 
-				averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_CURRENT_200MA:
-				averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_CURRENT_10A:
-								averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_CURRENT_1A_AC:
-								averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_VOLTAGE_200MV:
-								averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_VOLTAGE_30V: 
-				averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_VOLTAGE_30V_AC:
-				averageAdc_for_N_msec(500);
-				result = getVoltageCurrent();
-				break;
-			case ID_MODULE_SPIROMETER: 
-				spirograph();  
-				break;
-			case ID_MODULE_OXYGEN:
-				averageAdc_for_N_msec(2500);
-				result = getOxygenPercent(adc[0]);
-				break;
-			case ID_MODULE_NITRATES:
-				averageAdc_for_N_msec(1500);
-				result = getNitratSensor(adc[0]);
-				break;
-			case ID_MODULE_CO_GAS: 
-				averageAdc_for_N_msec(2500);
-				result = getCOppm(adc[0]);
-				break;
-			case ID_MODULE_TEMP_FAST:
-				HAL_ADC_Start(&hadc1);
-				HAL_ADC_PollForConversion(&hadc1, 100);
-				adc[0] = HAL_ADC_GetValue(&hadc1);
-				HAL_ADC_Stop(&hadc1);
-				result = getTempNTC(adc[0]);
-				break;
-			case ID_MODULE_ULTRAV:
-				averageAdc_for_N_msec(1500);
-				result = getUVIndex(adc[0]);
-				break;
-			default:  waiting_animation();  break;
-		}
-		
-		if(result!=-255) 
-		{
-			displayFloat(result);
-			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
-		//	CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
-		}
+//		result = -255; // some unreachable value 
+//		switch(currentModule)
+//		{	
+//			case ID_MODULE_ATM_PRESSURE: 
+//				if(init_needed) {read_calliberation_data();}  
+//				result = BMP180_GetPress();
+//				HAL_Delay(2000);
+//				break;
+//			case ID_MODULE_HUMIDITY: 
+//				result=getAHT20();  
+//				HAL_Delay(2000);			
+//				break;
+//			case ID_MODULE_TIME: 
+//				timerTask(); 
+//				break;
+//			case ID_MODULE_DIF_PRESSURE: 
+//				Hx711Task(); 
+//				break;
+//			case ID_MODULE_INDUCTANCE: 
+//				lcMeterTask();  
+//				break;
+//			case ID_MODULE_RADIATION: 
+//				result = getRadSens();
+//				break;
+//			case ID_MODULE_WEIGHT: 
+//				Hx711Task(); 
+//				break;
+//			case ID_MODULE_LIGHT: 
+//				if(init_needed) luxSensInit();
+//				result = getluxSens();	
+//				break;
+//			case ID_MODULE_FORCE: 
+//				Hx711Task();  
+//				break;
+//			case ID_MODULE_TEMP: 
+//				if(init_needed) ds18b20_init(SKIP_ROM);
+//				result = getDS18B20();
+//				break;
+//			case ID_MODULE_RESISTANCE: 
+//				result = getResistance();  
+//				break;
+//			case ID_MODULE_CAPACITY: 
+//				lcMeterTask();  
+//				break;
+//			case ID_MODULE_CURRENT_2MA: 
+//				averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_CURRENT_200MA:
+//				averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_CURRENT_10A:
+//								averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_CURRENT_1A_AC:
+//								averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_VOLTAGE_200MV:
+//								averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_VOLTAGE_30V: 
+//				averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_VOLTAGE_30V_AC:
+//				averageAdc_for_N_msec(500);
+//				result = getVoltageCurrent();
+//				break;
+//			case ID_MODULE_SPIROMETER: 
+//				spirograph();  
+//				break;
+//			case ID_MODULE_OXYGEN:
+//				averageAdc_for_N_msec(2500);
+//				result = getOxygenPercent(adc[0]);
+//				break;
+//			case ID_MODULE_NITRATES:
+//				averageAdc_for_N_msec(1500);
+//				result = getNitratSensor(adc[0]);
+//				break;
+//			case ID_MODULE_CO_GAS: 
+//				averageAdc_for_N_msec(2500);
+//				result = getCOppm(adc[0]);
+//				break;
+//			case ID_MODULE_TEMP_FAST:
+//				HAL_ADC_Start(&hadc1);
+//				HAL_ADC_PollForConversion(&hadc1, 100);
+//				adc[0] = HAL_ADC_GetValue(&hadc1);
+//				HAL_ADC_Stop(&hadc1);
+//				result = getTempNTC(adc[0]);
+//				break;
+//			case ID_MODULE_ULTRAV:
+//				averageAdc_for_N_msec(1500);
+//				result = getUVIndex(adc[0]);
+//				break;
+//			default:  waiting_animation();  break;
+//		}
+//		
+//		if(result!=-255) 
+//		{
+//			displayFloat(result);
+//			sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result); 
+//		//	CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+//		}
 		
     /* USER CODE END WHILE */
 
