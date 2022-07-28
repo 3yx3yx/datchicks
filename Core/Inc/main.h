@@ -87,14 +87,14 @@ void waiting_animation(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define data1_Pin GPIO_PIN_3
-#define data1_GPIO_Port GPIOA
-#define data2_Pin GPIO_PIN_4
-#define data2_GPIO_Port GPIOA
-#define data3_Pin GPIO_PIN_5
-#define data3_GPIO_Port GPIOA
-#define clk_Pin GPIO_PIN_6
+#define clk_Pin GPIO_PIN_3
 #define clk_GPIO_Port GPIOA
+#define data1_Pin GPIO_PIN_4
+#define data1_GPIO_Port GPIOA
+#define data2_Pin GPIO_PIN_5
+#define data2_GPIO_Port GPIOA
+#define data3_Pin GPIO_PIN_6
+#define data3_GPIO_Port GPIOA
 #define exti1_Pin GPIO_PIN_7
 #define exti1_GPIO_Port GPIOA
 #define exti1_EXTI_IRQn EXTI9_5_IRQn
