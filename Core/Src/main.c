@@ -627,7 +627,7 @@ void rj45_connectors_recognise (void)  // узнать какие датчики силы подключены к
 uint32_t hx711Average (uint8_t input, uint8_t gain)
 {
 	uint8_t const hx711Samples=10;
-	unsigned long hx711Sum;
+	unsigned long hx711Sum=0;
 	getValueHX711(input,gain); // refresh the gain settings
 	for (uint8_t i = 0; i< hx711Samples; i++)
 	{
@@ -641,77 +641,69 @@ uint32_t hx711Average (uint8_t input, uint8_t gain)
 
 
 void Hx711Task (void)
-{
+{		
+	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придется подобрать усиление. по умолч. 128 
+	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
+	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
+	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
+	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
+	float const scale1N =   ((28.28 - 101.12)/(881000 - 917500));
+	float const scale5N =  5/1000000;
+	float const scale50N = 50/800000;
+	float const scalePressure = 200/340000; 
+	float const scaleWeight=1000/300000;
+
+	enableExtis();
 	
-	hx711Value[0]= getValueHX711(1,128);
+  rj45_connectors_recognise();
+	for (uint8_t input =0; input<3; input++)
+	{	
+		switch (rj45_connected[input])
+		{
+			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
+			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
+			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
+			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
+			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
+			default: hx711Value[input]=0;
+		}
 	
-	
-	
-	
-	
-	
-//	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придется подобрать усиление. по умолч. 128 
-//	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
-//	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
-//	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
-//	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
-//	float const scale1N =  1/200000; // подставить значения полученные экспериментально: например подвесить груз в 1Н и записать показания hx711
-//	float const scale5N =  5/1000000;
-//	float const scale50N = 50/800000;
-//	float const scalePressure = 200/340000; // 
-//	float const scaleWeight=1000/300000;
-//	
-//	enableExtis();
-//	
-//	rj45_connectors_recognise();
-//	for (uint8_t input =0; input<3; input++)
-//	{	
-//		switch (rj45_connected[input])
-//		{
-//			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
-//			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
-//			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
-//			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
-//			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
-//			default: hx711Value[input]=0;
-//		}
-//		
-//		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
-//		
-//		hx711Value[input] -= offset[input];
-//		
-//		
-//		if(rj45_connected[input]!=0)
-//		{
-//		  //для входа 1 номер 108, для входа 2 - 208 и тд
-//			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
-//		  
-//			// usb is transmitting one by one here, so we need to check it busy status
-//			sendTime = HAL_GetTick();				
+		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
+		
+		hx711Value[input] -= offset[input];
+		
+		
+		if(rj45_connected[input]!=0)
+		{
+		  //для входа 1 номер 108, для входа 2 - 208 и тд
+			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
+		  
+			// usb is transmitting one by one here, so we need to check it busy status
+			sendTime = HAL_GetTick();				
 //					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
 //						if((HAL_GetTick() - sendTime)>3000) break; // timeout
 //					}
-//		}
-//	}
-//	
-//	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
-//	if(valueOnScreen>2) {valueOnScreen=0;}
-//	signsAllowed=1;
-//	displayFloat(hx711Value[valueOnScreen]);
-//	
-//	// show which value is on the display
-//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
-//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
-//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
-//	switch (valueOnScreen)
-//  {
-//  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
-//  		break;
-//  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
-//  		break;
-//  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
-//  		break;
-//  }
+		}
+	}
+	
+	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
+	if(valueOnScreen>2) {valueOnScreen=0;}
+	signsAllowed=1;
+	displayFloat(hx711Value[valueOnScreen]);
+	
+	// show which value is on the display
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
+	switch (valueOnScreen)
+  {
+  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
+  		break;
+  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
+  		break;
+  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
+  		break;
+  }
 }
 
 float getCOppm(uint16_t adc)
