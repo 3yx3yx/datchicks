@@ -886,6 +886,8 @@ int main(void)
   while (1)
   {
 
+		Hx711Task(); 
+		
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)
 //		currentModule = 0;	
@@ -897,12 +899,8 @@ int main(void)
 ///////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
 //		
 
-
-		currentModule = getModuleId();		
+//	currentModule = getModuleId();		
 		
-		hx711Value[0]= getValueHX711(1,128);
-		
-		HAL_Delay(500);
 //		if (currentModule!=currentModule_prev) 
 //			{
 //				
