@@ -451,7 +451,7 @@ void enableExtis (void)
 {
 	uint16_t debounceTime=20;
 	if(currentModule!=ID_MODULE_TIME || debounceLong) {debounceTime=350;} // if interrupt comes from optical gate then debouncing is not required
-	if(irqFlag && ((HAL_GetTick() - periodLast) > debounceTime) )//if time since last interrupt>100msec  
+	if(irqFlag && ((HAL_GetTick() - periodLast) > debounceTime) )// 
 	{		
 		irqFlag =0;
     clearEXTIs();
@@ -642,68 +642,83 @@ uint32_t hx711Average (uint8_t input, uint8_t gain)
 
 void Hx711Task (void)
 {		
-	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придется подобрать усиление. по умолч. 128 
-	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
-	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
-	float const scale1N =   ((28.28 - 101.12)/(881000 - 917500));
-	float const scale5N =  5/1000000;
-	float const scale50N = 50/800000;
-	float const scalePressure = 200/340000; 
-	float const scaleWeight=1000/300000;
+	
+	
+//     uint8_t		input=1;
+//		hx711Value[input] = hx711Average(input,128);
+//		
+//		if (interruptOnSwitch == input) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
+//		
+//		hx711Value[input] -= offset[input];
+//		hx711Value[input]*=((28.28 - 101.12)/(881000 - 917500));
+//		interruptOnSwitch=0;
+//		enableExtis();
+	
+//	uint8_t const gainLevel_1N = HX711_GAIN_DEFAULT; // возможно придется подобрать усиление. по умолч. 128 
+//	uint8_t const gainLevel_5N = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_50N = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_pressure = HX711_GAIN_DEFAULT;
+//	uint8_t const gainLevel_weight = HX711_GAIN_DEFAULT;
+//	float const scale1N =   ((28.28 - 101.12)/(881000 - 917500));
+//	float const scale5N =  5/1000000;
+//	float const scale50N = 50/800000;
+//	float const scalePressure = 200/340000; 
+//	float const scaleWeight=1000/300000;
 
-	enableExtis();
-	
-  rj45_connectors_recognise();
-	for (uint8_t input =0; input<3; input++)
-	{	
-		switch (rj45_connected[input])
-		{
-			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
-			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
-			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
-			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
-			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
-			default: hx711Value[input]=0;
-		}
-	
-		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
-		
-		hx711Value[input] -= offset[input];
-		
-		
-		if(rj45_connected[input]!=0)
-		{
-		  //для входа 1 номер 108, для входа 2 - 208 и тд
-			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
-		  
-			// usb is transmitting one by one here, so we need to check it busy status
-			sendTime = HAL_GetTick();				
-//					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
-//						if((HAL_GetTick() - sendTime)>3000) break; // timeout
-//					}
-		}
-	}
-	
-	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
-	if(valueOnScreen>2) {valueOnScreen=0;}
-	signsAllowed=1;
-	displayFloat(hx711Value[valueOnScreen]);
-	
-	// show which value is on the display
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
-	switch (valueOnScreen)
-  {
-  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
-  		break;
-  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
-  		break;
-  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
-  		break;
-  }
+//	enableExtis();
+//	
+//  rj45_connectors_recognise();
+//	for (uint8_t input =0; input<3; input++)
+//	{	
+////		switch (rj45_connected[input])
+////		{
+////			case RJ45_1_N:      hx711Value[input] = hx711Average(input,gainLevel_1N)*scale1N;             break;
+////			case RJ45_5_N:      hx711Value[input] = hx711Average(input,gainLevel_5N)*scale5N;             break;
+////			case RJ45_50_N:     hx711Value[input] = hx711Average(input,gainLevel_50N)*scale50N;           break;
+////			case RJ45_PRESSURE: hx711Value[input] = hx711Average(input,gainLevel_pressure)*scalePressure; break;
+////			case RJ45_WEIGHT:   hx711Value[input] = hx711Average(input,gainLevel_weight)*scaleWeight;     break;
+////			default: hx711Value[input]=0;
+////		}
+//	
+//		input=1;
+//		hx711Value[input] = hx711Average(input,128);
+//		
+//		if (interruptOnSwitch == input+1) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
+//		
+//		hx711Value[input] -= offset[input];
+//		
+//		
+//		if(rj45_connected[input]!=0)
+//		{
+//		  //для входа 1 номер 108, для входа 2 - 208 и тд
+//			sprintf(bufUsb, USB_STRING_FORMAT,(int)(currentModule + (input+1)*100), hx711Value[input]);
+//		  
+//			// usb is transmitting one by one here, so we need to check it busy status
+//			sendTime = HAL_GetTick();				
+////					while(CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb))!=USBD_OK){ // wait if usb is busy 
+////						if((HAL_GetTick() - sendTime)>3000) break; // timeout
+////					}
+//		}
+//	}
+//	
+//	if (interruptOnSwitch == 4) {valueOnScreen++;interruptOnSwitch=0;}
+//	if(valueOnScreen>2) {valueOnScreen=0;}
+//	signsAllowed=1;
+//	displayFloat(hx711Value[valueOnScreen]);
+//	
+//	// show which value is on the display
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);
+//	switch (valueOnScreen)
+//  {
+//  	case 0:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET);
+//  		break;
+//  	case 1:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET);
+//  		break;
+//  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
+//  		break;
+//  }
 }
 
 float getCOppm(uint16_t adc)
@@ -742,16 +757,15 @@ float getResistance(void)
 			case 2: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET); R = 1;    break;
 			default: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET); R = 0.1; break;
 		}
-		for (uint8_t smp=0; smp<10; smp++) {adcSum(); HAL_Delay(10);}
-		adcAverage();
+		averageAdc_for_N_msec(500);
 		if(adc[0]<400 && i<3) continue;
+		
+		Rx = (R*getVoltage(adc[0])/(3.3-getVoltage(adc[0])));  // kOhm
 		
 		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);//LED1
 	  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_RESET);//LED2
-		if (i>1) HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_SET);  // kOhm
+		if (Rx<1.0) HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_SET);  // kOhm
 		else HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_SET); // Ohm
-		
-		Rx = (R*adc[0])/(4096-adc[0]);  // kOhm
 		Rx*=1000; // ohm
 		
 		signsAllowed=0;
@@ -886,7 +900,9 @@ int main(void)
   while (1)
   {
 
-		Hx711Task(); 
+//		Hx711Task(); 
+		
+		averageAdc_for_N_msec(1000);
 		
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)
