@@ -136,9 +136,9 @@ _Bool volatile  debounceLong = 1;
 char bufUsb[20]; // buffer to send to USB
 char bufUsbStatus[20]; // buffer to send to USB
 float result =0;
-unsigned long volatile impulseCount=0;
-_Bool lcMeterStarted=0;
-_Bool volatile timerStopped=0;
+
+uint8_t diap;
+float freq=0;
 
 	uint32_t sendStatusTime=0; 
 	uint32_t sendTime=0; 
@@ -418,7 +418,6 @@ float getUVIndex (uint16_t adcUV)
 // обработчик прерываний со входов 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if (GPIO_Pin==GPIO_PIN_8){ impulseCount++; return;}  // используется для измерения частоты, если есть прерывание - выходим из функции 
 	interruptOnSwitch = 0;
 	if(GPIO_Pin == exti1_Pin) interruptOnSwitch = 1; 
 	if(GPIO_Pin == exti2_Pin) interruptOnSwitch = 2;
@@ -547,61 +546,20 @@ void timerTask (void)
 	
 void lcMeterTask (void)
 {
-	if (!lcMeterStarted)
+
+	for (uint8_t diap=0; diap<8; diap++) 
 	{
-		lcMeterStarted=1;
-		impulseCount=0;
-		HAL_TIM_Base_Start(&htim1); // start 1 sec. timer 
-		NVIC_EnableIRQ(EXTI9_5_IRQn);  // enable interrupts from lc generator pin
-	}
-	if (timerStopped)
-	{
-		
-		// freq == impulse count 
-		//calculate L or C
-		// L=100uH C=1000pF
-		// C= 1 / freq^2*4*(pi^2)*L
-		float val=0;
-		if (currentModule==ID_MODULE_CAPACITY)
-		{
-			val = 1*pow(10,9)/(pow(impulseCount,2)*4*9.869604*0.0001); // емкость в нФ
-			sprintf(bufUsb, USB_STRING_FORMAT, ID_MODULE_CAPACITY, val); 
-		}
-		else // if induct.
-		{
-			val = 1*pow(10,6)/(pow(impulseCount,2)*4*9.869604*1*pow(10,-9)); // in mH
-			sprintf(bufUsb, USB_STRING_FORMAT, ID_MODULE_INDUCTANCE, val);
-		}
-		
-		
-		if (val>999)    // меняем режим отображения и включаем лампочки мкф или нф (H or mH)
-		{
-			val/=1000; // convert to uF or H
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);
-		}
-		else
-		{
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_SET);
-			HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);
-		}
-		signsAllowed=0;
-		displayFloat(val);		
-		CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
-		
-		lcMeterStarted=0; // запускаем таймер и прерывания заново 
-		timerStopped=0;
-	}
+		TIM1->PSC = 1; // стартовая частота 1 мгц
+		HAL_TIM_Base_Start(&htim1);
+		HAL_Delay(100);
+		averageAdc_for_N_msec(100);
+		if(adc[0]>3800) {TIM1->PSC <<= 2;} // если ацп больше 3800 то делим частоту на 4
+		else {break;}
+  }
+	freq = 72000000/(73*(TIM1->PSC)); 
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	  if(htim == &htim1)
-		{
-			NVIC_DisableIRQ(EXTI9_5_IRQn); // stop interrupts 
-			timerStopped=1;
-		}
-}
+
 
 void rj45_connectors_recognise (void)  // узнать какие датчики силы подключены к разьемам
 {	
@@ -899,10 +857,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		// смотри в отладчике adc[0] и эти:
+//uint8_t diap;
+//float freq=0;
 
-//		Hx711Task(); 
+lcMeterTask();
 		
-		averageAdc_for_N_msec(1000);
+		
+		
 		
 ////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
 //		if(interruptOnSwitch)

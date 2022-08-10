@@ -1,10 +1,10 @@
 Dependencies for Project 'datchick', Target 'datchick': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (startup_stm32f103xb.s)(0x62DAE7A3)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o datchick\startup_stm32f103xb.o --depend datchick\startup_stm32f103xb.d)
+F (startup_stm32f103xb.s)(0x62F3B470)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32f103xb.lst --xref -o datchick\startup_stm32f103xb.o --depend datchick\startup_stm32f103xb.d)
 F (..\Core\Src\bmp180.c)(0x62B30CFA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\bmp180.o --omf_browse datchick\bmp180.crf --depend datchick\bmp180.d)
 I (../Core/Inc/bmp180.h)(0x62A142F8)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -37,13 +37,13 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
-I (../Core/Inc/i2c.h)(0x62DAE771)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/i2c.h)(0x62F3B447)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602577D8)
 F (..\Core\Src\ds18b20.c)(0x62A0E7EB)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\ds18b20.o --omf_browse datchick\ds18b20.crf --depend datchick\ds18b20.d)
 I (../Core/Inc/ds18b20.h)(0x62A0E7EF)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -79,7 +79,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 F (..\Core\Src\radsens.c)(0x62A70A4B)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\radsens.o --omf_browse datchick\radsens.crf --depend datchick\radsens.d)
 I (../Core/Inc/radsens.h)(0x62A7099F)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -112,12 +112,12 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
-I (../Core/Inc/i2c.h)(0x62DAE771)
-I (../Core/Inc/main.h)(0x62DAE77E)
-F (../Core/Src/main.c)(0x62E1279A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\main.o --omf_browse datchick\main.crf --depend datchick\main.d)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/i2c.h)(0x62F3B447)
+I (../Core/Inc/main.h)(0x62F3B452)
+F (../Core/Src/main.c)(0x62F3C5A8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\main.o --omf_browse datchick\main.crf --depend datchick\main.d)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -148,18 +148,18 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-I (../Core/Inc/adc.h)(0x62DAE76F)
-I (../Core/Inc/i2c.h)(0x62DAE771)
-I (../Core/Inc/tim.h)(0x62DAE772)
-I (../USB_DEVICE/App/usb_device.h)(0x62DAE774)
+I (../Core/Inc/adc.h)(0x62F3B446)
+I (../Core/Inc/i2c.h)(0x62F3B447)
+I (../Core/Inc/tim.h)(0x62F3B449)
+I (../USB_DEVICE/App/usb_device.h)(0x62F3B44A)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/gpio.h)(0x62DAE75F)
+I (../Core/Inc/gpio.h)(0x62F3B441)
 I (../Core/Inc/ds18b20.h)(0x62A0E7EF)
-I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62DAE777)
+I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62F3B44C)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
@@ -167,11 +167,11 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x602577D8)
 I (../Core/Inc/bmp180.h)(0x62A142F8)
 I (../Core/Inc/radsens.h)(0x62A7099F)
-F (../Core/Src/gpio.c)(0x62DAE75E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\gpio.o --omf_browse datchick\gpio.crf --depend datchick\gpio.d)
-I (../Core/Inc/gpio.h)(0x62DAE75F)
-I (../Core/Inc/main.h)(0x62DAE77E)
+F (../Core/Src/gpio.c)(0x62F3B441)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\gpio.o --omf_browse datchick\gpio.crf --depend datchick\gpio.d)
+I (../Core/Inc/gpio.h)(0x62F3B441)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -202,11 +202,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-F (../Core/Src/adc.c)(0x62DAE76E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\adc.o --omf_browse datchick\adc.crf --depend datchick\adc.d)
-I (../Core/Inc/adc.h)(0x62DAE76F)
-I (../Core/Inc/main.h)(0x62DAE77E)
+F (../Core/Src/adc.c)(0x62F3B446)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\adc.o --omf_browse datchick\adc.crf --depend datchick\adc.d)
+I (../Core/Inc/adc.h)(0x62F3B446)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -237,11 +237,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-F (../Core/Src/i2c.c)(0x62DAE770)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\i2c.o --omf_browse datchick\i2c.crf --depend datchick\i2c.d)
-I (../Core/Inc/i2c.h)(0x62DAE771)
-I (../Core/Inc/main.h)(0x62DAE77E)
+F (../Core/Src/i2c.c)(0x62F3B447)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\i2c.o --omf_browse datchick\i2c.crf --depend datchick\i2c.d)
+I (../Core/Inc/i2c.h)(0x62F3B447)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -272,11 +272,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-F (../Core/Src/tim.c)(0x62DAE772)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\tim.o --omf_browse datchick\tim.crf --depend datchick\tim.d)
-I (../Core/Inc/tim.h)(0x62DAE772)
-I (../Core/Inc/main.h)(0x62DAE77E)
+F (../Core/Src/tim.c)(0x62F3C5A8)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\tim.o --omf_browse datchick\tim.crf --depend datchick\tim.d)
+I (../Core/Inc/tim.h)(0x62F3B449)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -307,10 +307,10 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-F (../Core/Src/stm32f1xx_it.c)(0x62DAE779)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_it.o --omf_browse datchick\stm32f1xx_it.crf --depend datchick\stm32f1xx_it.d)
-I (../Core/Inc/main.h)(0x62DAE77E)
+F (../Core/Src/stm32f1xx_it.c)(0x62F3B44E)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_it.o --omf_browse datchick\stm32f1xx_it.crf --depend datchick\stm32f1xx_it.d)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -341,11 +341,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_it.h)(0x62DAE779)
-F (../Core/Src/stm32f1xx_hal_msp.c)(0x62DAE77A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_msp.o --omf_browse datchick\stm32f1xx_hal_msp.crf --depend datchick\stm32f1xx_hal_msp.d)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/stm32f1xx_it.h)(0x62F3B44E)
+F (../Core/Src/stm32f1xx_hal_msp.c)(0x62F3B450)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_msp.o --omf_browse datchick\stm32f1xx_hal_msp.crf --depend datchick\stm32f1xx_hal_msp.d)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -376,8 +376,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
-F (../USB_DEVICE/App/usb_device.c)(0x62DAE773)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usb_device.o --omf_browse datchick\usb_device.crf --depend datchick\usb_device.d)
-I (../USB_DEVICE/App/usb_device.h)(0x62DAE774)
+F (../USB_DEVICE/App/usb_device.c)(0x62F3B44A)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usb_device.o --omf_browse datchick\usb_device.crf --depend datchick\usb_device.d)
+I (../USB_DEVICE/App/usb_device.h)(0x62F3B44A)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x62194EDD)
 I (../Drivers/CMSIS/Include/core_cm3.h)(0x62194EB1)
@@ -387,7 +387,7 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x62194EB1)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x62194EB1)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x62194EDD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x62194EDE)
@@ -411,26 +411,26 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA)
-I (../USB_DEVICE/App/usbd_desc.h)(0x62DAE775)
+I (../USB_DEVICE/App/usbd_desc.h)(0x62F3B44B)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x62194EBA)
-I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62DAE777)
-F (../USB_DEVICE/App/usbd_desc.c)(0x62DAE776)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_desc.o --omf_browse datchick\usbd_desc.crf --depend datchick\usbd_desc.d)
+I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62F3B44C)
+F (../USB_DEVICE/App/usbd_desc.c)(0x62F3B44C)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_desc.o --omf_browse datchick\usbd_desc.crf --depend datchick\usbd_desc.d)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -464,19 +464,19 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA)
-I (../USB_DEVICE/App/usbd_desc.h)(0x62DAE775)
-F (../USB_DEVICE/App/usbd_cdc_if.c)(0x62DAE777)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_cdc_if.o --omf_browse datchick\usbd_cdc_if.crf --depend datchick\usbd_cdc_if.d)
-I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62DAE777)
+I (../USB_DEVICE/App/usbd_desc.h)(0x62F3B44B)
+F (../USB_DEVICE/App/usbd_cdc_if.c)(0x62F3B44D)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_cdc_if.o --omf_browse datchick\usbd_cdc_if.crf --depend datchick\usbd_cdc_if.d)
+I (../USB_DEVICE/App/usbd_cdc_if.h)(0x62F3B44C)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -509,7 +509,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA)
-F (../USB_DEVICE/Target/usbd_conf.c)(0x62DAE775)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_conf.o --omf_browse datchick\usbd_conf.crf --depend datchick\usbd_conf.d)
+F (../USB_DEVICE/Target/usbd_conf.c)(0x62F3B44B)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_conf.o --omf_browse datchick\usbd_conf.crf --depend datchick\usbd_conf.d)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h)(0x62194EDD)
 I (../Drivers/CMSIS/Include/core_cm3.h)(0x62194EB1)
@@ -519,7 +519,7 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x62194EB1)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x62194EB1)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x62194EDD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x62194EDE)
@@ -543,18 +543,18 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x62194EBA)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_gpio_ex.o --omf_browse datchick\stm32f1xx_hal_gpio_ex.crf --depend datchick\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -587,7 +587,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_pcd.o --omf_browse datchick\stm32f1xx_hal_pcd.crf --depend datchick\stm32f1xx_hal_pcd.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -620,7 +620,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pcd_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_pcd_ex.o --omf_browse datchick\stm32f1xx_hal_pcd_ex.crf --depend datchick\stm32f1xx_hal_pcd_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -653,7 +653,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_ll_usb.o --omf_browse datchick\stm32f1xx_ll_usb.crf --depend datchick\stm32f1xx_ll_usb.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -686,7 +686,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal.o --omf_browse datchick\stm32f1xx_hal.crf --depend datchick\stm32f1xx_hal.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -719,7 +719,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_rcc.o --omf_browse datchick\stm32f1xx_hal_rcc.crf --depend datchick\stm32f1xx_hal_rcc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -752,7 +752,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_rcc_ex.o --omf_browse datchick\stm32f1xx_hal_rcc_ex.crf --depend datchick\stm32f1xx_hal_rcc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -785,7 +785,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_gpio.o --omf_browse datchick\stm32f1xx_hal_gpio.crf --depend datchick\stm32f1xx_hal_gpio.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -818,7 +818,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_dma.o --omf_browse datchick\stm32f1xx_hal_dma.crf --depend datchick\stm32f1xx_hal_dma.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -851,7 +851,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_cortex.o --omf_browse datchick\stm32f1xx_hal_cortex.crf --depend datchick\stm32f1xx_hal_cortex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -884,7 +884,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_pwr.o --omf_browse datchick\stm32f1xx_hal_pwr.crf --depend datchick\stm32f1xx_hal_pwr.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -917,7 +917,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_flash.o --omf_browse datchick\stm32f1xx_hal_flash.crf --depend datchick\stm32f1xx_hal_flash.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -950,7 +950,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_flash_ex.o --omf_browse datchick\stm32f1xx_hal_flash_ex.crf --depend datchick\stm32f1xx_hal_flash_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -983,7 +983,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_exti.o --omf_browse datchick\stm32f1xx_hal_exti.crf --depend datchick\stm32f1xx_hal_exti.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1016,7 +1016,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_adc.o --omf_browse datchick\stm32f1xx_hal_adc.crf --depend datchick\stm32f1xx_hal_adc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1049,7 +1049,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_adc_ex.o --omf_browse datchick\stm32f1xx_hal_adc_ex.crf --depend datchick\stm32f1xx_hal_adc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1082,7 +1082,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_i2c.o --omf_browse datchick\stm32f1xx_hal_i2c.crf --depend datchick\stm32f1xx_hal_i2c.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1115,7 +1115,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_tim.o --omf_browse datchick\stm32f1xx_hal_tim.crf --depend datchick\stm32f1xx_hal_tim.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1148,7 +1148,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c)(0x62194EDE)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\stm32f1xx_hal_tim_ex.o --omf_browse datchick\stm32f1xx_hal_tim_ex.crf --depend datchick\stm32f1xx_hal_tim_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1189,7 +1189,7 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x62194EB1)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x62194EB1)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x62194EDD)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x62194EDE)
@@ -1214,13 +1214,13 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h)(0x62194EDE)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c)(0x62194EBA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_core.o --omf_browse datchick\usbd_core.crf --depend datchick\usbd_core.d)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1257,13 +1257,13 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c)(0x62194EBA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_ctlreq.o --omf_browse datchick\usbd_ctlreq.crf --depend datchick\usbd_ctlreq.d)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1299,13 +1299,13 @@ I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h)(0x62194EBA)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c)(0x62194EBA)(--c99 -c --cpu Cortex-M3 -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../USB_DEVICE/App -I ../USB_DEVICE/Target -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include-I.\RTE\_datchick-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"C:\Users\Petr Tarabakin\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.0\Device\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o datchick\usbd_ioreq.o --omf_browse datchick\usbd_ioreq.crf --depend datchick\usbd_ioreq.d)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
@@ -1342,13 +1342,13 @@ F (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c)(0x62194E
 I (../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h)(0x62194EBA)
 I (../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h)(0x62194EBA)
-I (../USB_DEVICE/Target/usbd_conf.h)(0x62DAE774)
+I (../USB_DEVICE/Target/usbd_conf.h)(0x62F3B44A)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602577D4)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602577DE)
-I (../Core/Inc/main.h)(0x62DAE77E)
+I (../Core/Inc/main.h)(0x62F3B452)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x62194EDE)
-I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62DAE77D)
+I (../Core/Inc/stm32f1xx_hal_conf.h)(0x62F3B451)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x62194EDE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x62194EDE)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x62194EDD)
