@@ -546,11 +546,10 @@ void timerTask (void)
 	
 void lcMeterTask (void)
 {
-
-	for (uint8_t diap=0; diap<8; diap++) 
+	for ( diap=0; diap<8; diap++) 
 	{
 		TIM1->PSC = 1; // стартовая частота 1 мгц
-		HAL_TIM_Base_Start(&htim1);
+
 		HAL_Delay(100);
 		averageAdc_for_N_msec(100);
 		if(adc[0]>3800) {TIM1->PSC <<= 2;} // если ацп больше 3800 то делим частоту на 4
