@@ -549,7 +549,7 @@ void lcMeterTask (void)
 	for ( diap=0; diap<8; diap++) 
 	{
 		TIM1->PSC = 1; // стартовая частота 1 мгц
-
+HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
 		HAL_Delay(100);
 		averageAdc_for_N_msec(100);
 		if(adc[0]>3800) {TIM1->PSC <<= 2;} // если ацп больше 3800 то делим частоту на 4
