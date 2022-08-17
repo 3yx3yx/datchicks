@@ -148,6 +148,8 @@ float freq=0;
 	
 	_Bool USBconnected=0;
 	
+
+	
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -546,13 +548,14 @@ void timerTask (void)
 	
 void lcMeterTask (void)
 {
+			TIM1->PSC = 1; // стартовая частота 1 мгц
 	for ( diap=0; diap<8; diap++) 
 	{
-		TIM1->PSC = 1; // стартовая частота 1 мгц
+
 HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
 		HAL_Delay(100);
 		averageAdc_for_N_msec(100);
-		if(adc[0]>3800) {TIM1->PSC <<= 2;} // если ацп больше 3800 то делим частоту на 4
+		if(adc[0]>3800) {TIM1->PSC *=4;} // если ацп больше 3800 то делим частоту на 4
 		else {break;}
   }
 	freq = 72000000/(73*(TIM1->PSC)); 
@@ -715,7 +718,7 @@ float getResistance(void)
 			default: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET); R = 0.1; break;
 		}
 		averageAdc_for_N_msec(500);
-		if(adc[0]<400 && i<3) continue;
+    if(adc[0]<400 && i<3) continue;
 		
 		Rx = (R*getVoltage(adc[0])/(3.3-getVoltage(adc[0])));  // kOhm
 		
@@ -750,7 +753,7 @@ float getVoltageCurrent(void)
 	}
 	
 	inVoltage = getVoltage(adc[0])/33;
-	if((type==DC_CURRENT||type==DC_CURRENT)&& adc[0]< adc[1]) {inVoltage = getVoltage(adc[1])/-33;} // если отрицательное напряжение 
+	if((type==DC_CURRENT||type==DC_CURRENT)&& adc[0]< adc[1]) {inVoltage = getVoltage(adc[1])/-34;} // если отрицательное напряжение 
 	if(X>0) {inVoltage*=X;}
 	signsAllowed=1;
 	switch(type)
@@ -848,7 +851,7 @@ int main(void)
   port_init(); // init DS18B20 pin 
 	uint8_t currentModule_prev =255;
 	_Bool init_needed=0;
-	
+	HAL_ADCEx_Calibration_Start(&hadc1);
 //if ((&hUsbDeviceFS->dev_state != USBD_STATE_CONFIGURED)
   /* USER CODE END 2 */
 
@@ -860,7 +863,7 @@ int main(void)
 //uint8_t diap;
 //float freq=0;
 
-lcMeterTask();
+result = getResistance();
 		
 		
 		
