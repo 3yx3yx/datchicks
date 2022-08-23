@@ -84,6 +84,7 @@ float getNitratSensor(uint16_t adc);
 void spirograph (void);
 void averageAdc_for_N_msec (uint16_t msec);
 void waiting_animation(void);
+void dacWrite(uint16_t data);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

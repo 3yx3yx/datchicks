@@ -153,7 +153,7 @@
           <Number>0</Number>
           <Type>0</Type>
           <LineNumber>561</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
+          <EnabledFlag>0</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
@@ -169,7 +169,7 @@
           <Number>1</Number>
           <Type>0</Type>
           <LineNumber>554</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
+          <EnabledFlag>0</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
@@ -185,7 +185,7 @@
           <Number>2</Number>
           <Type>0</Type>
           <LineNumber>551</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
+          <EnabledFlag>0</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
@@ -201,7 +201,7 @@
           <Number>3</Number>
           <Type>0</Type>
           <LineNumber>551</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
+          <EnabledFlag>0</EnabledFlag>
           <Address>134235102</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>

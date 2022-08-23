@@ -699,39 +699,60 @@ float getOxygenPercent(uint16_t adc)
 	return (float)(20/1.416)*volt;
 }
 
+
+void dacWrite(uint16_t data)
+{
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // LDAC
+	for(uint8_t i =0; i<16; i++)
+	{
+		if (data & 0x8000) 
+			{ 
+				HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);//SDI
+			}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);//SDI
+		}
+
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_SET);//SCK	
+		data<<=1;
+
+		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_RESET);//SCK	
+	}
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET); // CS
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET); // LDAC
+	delayUs(1);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // LDAC
+}
+
 float getResistance(void)
 {
-	float R =0;
-	float Rx=0;
-	for(uint8_t i =0; i<4; i++)
+  // bit 15: 0 for DAC A, 1 for DAC B. (Always 0 for MCP49x1.)
+  // bit 14: buffer VREF?
+  // bit 13: gain bit; 0 for 1x gain, 1 for 2x (thus we NOT the variable)
+  // bit 12: shutdown bit. 1 for active operation
+  // bits 11 through 0: data 
+	
+	uint16_t data = 0<<15 | 1<<14 | 0<<13 | 1<<12;
+	
+	for (uint16_t dac = 1; dac<4096; dac++)
 	{
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_15,GPIO_PIN_RESET);//100k
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_RESET);//10k
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_RESET);//1k
-	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_RESET);//100R
-
-		switch(i)
-		{
-			case 0: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_15,GPIO_PIN_SET); R = 100;  break;
-			case 1: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14,GPIO_PIN_SET); R = 10;   break;
-			case 2: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13,GPIO_PIN_SET); R = 1;    break;
-			default: HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET); R = 0.1; break;
-		}
-		averageAdc_for_N_msec(500);
-    if(adc[0]<400 && i<3) continue;
+		data|= dac;
+		dacWrite(data);
+		averageAdc_for_N_msec(10);
 		
-		Rx = (R*getVoltage(adc[0])/(3.3-getVoltage(adc[0])));  // kOhm
+		if(adc[0]<500)  {  dac+=31; continue;}
+		if(adc[0]<700)  {  dac+=15; continue;}
+		if(adc[0]<900)  {  dac+=7; continue;}
+		if(adc[0]<1000) { continue;}
 		
-		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);//LED1
-	  HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_RESET);//LED2
-		if (Rx<1.0) HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_SET);  // kOhm
-		else HAL_GPIO_WritePin(GPIOC,GPIO_PIN_14,GPIO_PIN_SET); // Ohm
-		Rx*=1000; // ohm
-		
-		signsAllowed=0;
-		break;
+		averageAdc_for_N_msec(100);
+		float Rx =  (getVoltage(adc[0])) / ((2.5 * dac)/ 4095);
+		Rx -= 1;
+		return Rx;
+		break;		
 	}
-	return Rx;
 }
 
 float getVoltageCurrent(void)
@@ -859,25 +880,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		// смотри в отладчике adc[0] и эти:
-//uint8_t diap;
-//float freq=0;
+
 
 result = getResistance();
 		
 		
 		
 		
-////////////////////////////////////////////////////////////////DELETE//////////////////////////////////////
-//		if(interruptOnSwitch)
-//		currentModule = 0;	
-//		if(interruptOnSwitch == 4)
-//		currentModule = ID_MODULE_VOLTAGE_30V_AC;
-//	
-//		interruptOnSwitch=0;
-//		enableExtis();
-///////////////////////////////////////////////////////////////DELETE///////////////////////////////////////////
-//		
+
 
 //	currentModule = getModuleId();		
 		
