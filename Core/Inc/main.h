@@ -90,8 +90,6 @@ void dacWrite(uint16_t data);
 /* Private defines -----------------------------------------------------------*/
 #define clk_Pin GPIO_PIN_3
 #define clk_GPIO_Port GPIOA
-#define relayPin GPIO_PIN_15
-#define relayPort GPIOB
 #define data1_Pin GPIO_PIN_4
 #define data1_GPIO_Port GPIOA
 #define data2_Pin GPIO_PIN_5
