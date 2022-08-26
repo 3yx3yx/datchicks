@@ -753,7 +753,6 @@ float getResistance(void)
 		flagRelay = 1;
 	}
 	
-<<<<<<< HEAD
   uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
   data|= dac;
   dacWrite(data);
@@ -797,29 +796,6 @@ float getResistance(void)
 	}
   return Rx;
   }
-=======
-	for (dac = 1; dac < 4095; dac++)
-  {
-    HAL_GPIO_WritePin(GPIOB,GPIO_PIN_15, GPIO_PIN_RESET);
-    if(dac<3) {HAL_GPIO_WritePin(GPIOB,GPIO_PIN_15, GPIO_PIN_SET);} // switch the opamp gain resistor
-    
-    uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
-    data|= dac;
-    dacWrite(data);
-    averageAdc_for_N_msec(10);
-  
-      if(adc[0]<700)  {  dac+=31; continue;}
-      if(adc[0]<900)  {  dac+=15; continue;}
-      if(adc[0]<1200) { dac+=20; continue;}
-      
-    averageAdc_for_N_msec(100);
-    Rx = (float)adc[0] / (float)dac;
-    Rx -= 1.00;
-    if(dac<3) {Rx *= 33;}
-    
-    return Rx;        
-    }
->>>>>>> ce1f7156fd0e5b336d265dba73f4595ebee8e158
 }
 
 float getVoltageCurrent(void)
