@@ -121,6 +121,9 @@ float    offset[3]={0}; // усановка 0 или тары для весов
 uint16_t  adc[3]={0}; // 3 adc1 channels 
 uint32_t  adcTotal[3]={0}; 
 uint16_t  adcNSamples=0;
+uint16_t dac = 1;
+uint16_t sd = 1;
+float Rx = 0;
 
 uint32_t volatile timeStart=0; // переменные которые изменяются в прерывании волатильные 
 uint32_t volatile timeInterv [10]={0};
@@ -386,7 +389,7 @@ void adcAverage (void) // call this before use adc values
 		adcNSamples=0;	
 	}
 }
-float getVoltage(uint16_t adc) { return (3.3/4095)*adc;}
+float getVoltage(uint16_t adc) { return (3.3/4095)*(float)adc;}
 
 
 float getAHT20 (void)	
@@ -679,6 +682,15 @@ void Hx711Task (void)
 //  	default:HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,GPIO_PIN_SET);
 //  		break;
 //  }
+		uint8_t    input=1;
+    hx711Value[input] = hx711Average(input,128);
+    
+    if (interruptOnSwitch == input) {offset[input] = hx711Value[input];interruptOnSwitch=0;} // установка нуля
+    
+    hx711Value[input] -= offset[input];
+    //hx711Value[input]*=((28.28 - 101.12)/(881000 - 917500));
+    interruptOnSwitch=0;
+    enableExtis();
 }
 
 float getCOppm(uint16_t adc)
@@ -701,8 +713,8 @@ float getOxygenPercent(uint16_t adc)
 
 
 void dacWrite(uint16_t data)
-{
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS
+{	
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // LDAC
 	for(uint8_t i =0; i<16; i++)
 	{
@@ -713,11 +725,12 @@ void dacWrite(uint16_t data)
 		else
 		{
 			HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);//SDI
+			HAL_Delay(1);
 		}
-
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_SET);//SCK	
 		data<<=1;
-
+		HAL_Delay(1);
+		
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_RESET);//SCK	
 	}
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET); // CS
@@ -734,25 +747,34 @@ float getResistance(void)
   // bit 12: shutdown bit. 1 for active operation
   // bits 11 through 0: data 
 	
-	uint16_t data = 0<<15 | 1<<14 | 0<<13 | 1<<12;
-	
-	for (uint16_t dac = 1; dac<4096; dac++)
+	int flagRelay = 0;
+	HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
+	for (dac = 1; dac < 4095; dac++)
 	{
+		uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
 		data|= dac;
 		dacWrite(data);
 		averageAdc_for_N_msec(10);
 		
-		if(adc[0]<500)  {  dac+=31; continue;}
-		if(adc[0]<700)  {  dac+=15; continue;}
-		if(adc[0]<900)  {  dac+=7; continue;}
-		if(adc[0]<1000) { continue;}
+		if (dac == 1 && adc[0] > 200 && !flagRelay)
+		{
+			flagRelay = 1;
+			HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
+			continue ;
+		}
 		
+			if(adc[0]<700)  {  dac+=31; continue;}
+			if(adc[0]<900)  {  dac+=15; continue;}
+			if(adc[0]<1100)  {  dac+=15; continue;}
+			if(adc[0]<1200) { dac+=20; continue;}
+			
 		averageAdc_for_N_msec(100);
-		float Rx =  (getVoltage(adc[0])) / ((2.5 * dac)/ 4095);
-		Rx -= 1;
+		Rx = (float)adc[0] / (float)dac;
+		Rx -= 1.00;
+		if (flagRelay)
+			Rx *= 33;
 		return Rx;
-		break;		
-	}
+		}
 }
 
 float getVoltageCurrent(void)
@@ -811,7 +833,6 @@ void averageAdc_for_N_msec (uint16_t msec)
 	while (HAL_GetTick() - time < msec) {adcSum();}
 	adcAverage();
 }
-
 void waiting_animation(void)
 {
     uint8_t byte = 0x1;
@@ -849,7 +870,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+   HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -883,11 +904,10 @@ int main(void)
 
 
 result = getResistance();
-		
-		
-		
-		
-
+		/*uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
+		data |= sd;
+		dacWrite(data);
+		averageAdc_for_N_msec(100);*/
 
 //	currentModule = getModuleId();		
 		
@@ -931,7 +951,8 @@ result = getResistance();
 //				timerTask(); 
 //				break;
 //			case ID_MODULE_DIF_PRESSURE: 
-//				Hx711Task(); 
+//				Hx711Task();
+//				hx711Value[1] *= 1;
 //				break;
 //			case ID_MODULE_INDUCTANCE: 
 //				lcMeterTask();  
