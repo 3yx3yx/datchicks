@@ -23,6 +23,7 @@
 #include "tim.h"
 #include "usb_device.h"
 #include "gpio.h"
+#include "stdlib.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -715,7 +716,6 @@ float getOxygenPercent(uint16_t adc)
 void dacWrite(uint16_t data)
 {	
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_RESET); // CS
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // LDAC
 	for(uint8_t i =0; i<16; i++)
 	{
 		if (data & 0x8000) 
@@ -734,9 +734,7 @@ void dacWrite(uint16_t data)
 		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_13, GPIO_PIN_RESET);//SCK	
 	}
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_12, GPIO_PIN_SET); // CS
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET); // LDAC
 	delayUs(1);
-	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // LDAC
 }
 
 float getResistance(void)
@@ -746,35 +744,58 @@ float getResistance(void)
   // bit 13: gain bit; 0 for 1x gain, 1 for 2x (thus we NOT the variable)
   // bit 12: shutdown bit. 1 for active operation
   // bits 11 through 0: data 
+ 
+ int flagRelay = 1;
+ for (dac = 4; dac < 4095; dac++)
+ {
+	if (flagRelay && Rx > 35)	{
+		HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
+		flagRelay = 1;
+	}
 	
-	int flagRelay = 0;
-	HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
-	for (dac = 1; dac < 4095; dac++)
+  uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
+  data|= dac;
+  dacWrite(data);
+  averageAdc_for_N_msec(10);
+	
+	if (adc[0] > 4000 && flagRelay){
+		dac -= 3;
+		adc[0] = 0;
+		continue;
+	}
+  
+  if (dac == 4 && adc[0] < 150 && flagRelay)
+  {
+   flagRelay = 0;
+   HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
+   continue ;
+  }
+ 
+   if(adc[0]<700)  {  dac+=61; if(!flagRelay) dac+=30; continue;}
+   if(adc[0]<900)  {  dac+=15; continue;}
+   if(adc[0]<1100)  {  dac+=15; continue;}
+   if(adc[0]<1200) { dac+=10; continue;}
+	 if (Rx < 0.09 && dac < 3500 && flagRelay != 1)
+	 {
+		 dac = 3500;
+		 continue ;
+	 }
+   
+  averageAdc_for_N_msec(100);
+  Rx = (float)adc[0] / (float)dac;
+	Rx -= 1.00;
+	if (Rx < 1)
 	{
-		uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
-		data|= dac;
-		dacWrite(data);
-		averageAdc_for_N_msec(10);
-		
-		if (dac == 1 && adc[0] > 200 && !flagRelay)
-		{
-			flagRelay = 1;
-			HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
-			continue ;
-		}
-		
-			if(adc[0]<700)  {  dac+=31; continue;}
-			if(adc[0]<900)  {  dac+=15; continue;}
-			if(adc[0]<1100)  {  dac+=15; continue;}
-			if(adc[0]<1200) { dac+=20; continue;}
-			
-		averageAdc_for_N_msec(100);
-		Rx = (float)adc[0] / (float)dac;
-		Rx -= 1.00;
-		if (flagRelay)
-			Rx *= 33;
-		return Rx;
-		}
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
+		return (Rx * 1000);
+	}
+	else	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_RESET);
+	}
+  return Rx;
+  }
 }
 
 float getVoltageCurrent(void)
