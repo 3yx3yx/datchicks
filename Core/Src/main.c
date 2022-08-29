@@ -748,13 +748,14 @@ float getResistance(void)
  int flagRelay = 1;
  for (dac = 4; dac < 4095; dac++)
  {
-	if (flagRelay && Rx > 35)	{
+	if (dac == 4 && flagRelay && result > 10)	{
 		HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
 		flagRelay = 1;
+		continue ;
 	}
 	
   uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
-  data|= dac;
+  data|= dac; 
   dacWrite(data);
   averageAdc_for_N_msec(10);
 	
@@ -764,11 +765,11 @@ float getResistance(void)
 		continue;
 	}
   
-  if (dac == 4 && adc[0] < 150 && flagRelay)
+  if (dac == 4 && Rx < 10 && flagRelay)
   {
    flagRelay = 0;
    HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
-   continue ;
+		//Rx = 0;
   }
  
    if(adc[0]<700)  {  dac+=61; if(!flagRelay) dac+=30; continue;}
@@ -783,7 +784,11 @@ float getResistance(void)
    
   averageAdc_for_N_msec(100);
   Rx = (float)adc[0] / (float)dac;
-	Rx -= 1.00;
+	 Rx -= 1.00;
+	if (flagRelay)
+		Rx *= 10;
+	else
+		Rx /= 2;
 	if (Rx < 1)
 	{
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_SET);
