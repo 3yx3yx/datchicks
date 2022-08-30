@@ -118,7 +118,6 @@ float    hx711Value[3]={0}; // pressure, weight and force sensors values
 uint8_t  valueOnScreen=0;// какое из значений показывается на 7сег диспл.
 float    offset[3]={0}; // усановка 0 или тары для весов 
 
-
 uint16_t  adc[3]={0}; // 3 adc1 channels 
 uint32_t  adcTotal[3]={0}; 
 uint16_t  adcNSamples=0;
@@ -748,7 +747,10 @@ float getResistance(void)
  int flagRelay = 1;
  for (dac = 4; dac < 4095; dac++)
  {
-	if (dac == 4 && flagRelay && result > 10)	{
+	if (result < 0){
+			result = 0;
+	}
+	if (dac == 4 && flagRelay && Rx > 11)	{
 		HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
 		flagRelay = 1;
 		continue ;
@@ -769,14 +771,13 @@ float getResistance(void)
   {
    flagRelay = 0;
    HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
-		//Rx = 0;
   }
  
    if(adc[0]<700)  {  dac+=61; if(!flagRelay) dac+=30; continue;}
    if(adc[0]<900)  {  dac+=15; continue;}
    if(adc[0]<1100)  {  dac+=15; continue;}
    if(adc[0]<1200) { dac+=10; continue;}
-	 if (Rx < 0.09 && dac < 3500 && flagRelay != 1)
+	 if (Rx < 0.03 && Rx > 0 && dac < 3500 && flagRelay != 1)
 	 {
 		 dac = 3500;
 		 continue ;
