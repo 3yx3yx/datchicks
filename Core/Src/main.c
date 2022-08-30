@@ -743,18 +743,20 @@ float getResistance(void)
   // bit 13: gain bit; 0 for 1x gain, 1 for 2x (thus we NOT the variable)
   // bit 12: shutdown bit. 1 for active operation
   // bits 11 through 0: data 
- 
  int flagRelay = 1;
  for (dac = 4; dac < 4095; dac++)
  {
 	if (result < 0){
 			result = 0;
 	}
-	if (dac == 4 && flagRelay && Rx > 11)	{
+	if (dac == 4 && flagRelay && Rx > 12)	{
 		HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_SET);
-		flagRelay = 1;
 		continue ;
 	}
+	else if (dac == 4) {
+   flagRelay = 0;
+   HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
+  }
 	
   uint16_t data = 0<<15 | 0<<14 | 1<<13 | 1<<12;
   data|= dac; 
@@ -767,11 +769,11 @@ float getResistance(void)
 		continue;
 	}
   
-  if (dac == 4 && Rx < 10 && flagRelay)
+ /* if (dac == 4 && Rx < 9 && flagRelay)
   {
    flagRelay = 0;
    HAL_GPIO_WritePin(relayPort, relayPin, GPIO_PIN_RESET);
-  }
+  }*/
  
    if(adc[0]<700)  {  dac+=61; if(!flagRelay) dac+=30; continue;}
    if(adc[0]<900)  {  dac+=15; continue;}
@@ -785,7 +787,7 @@ float getResistance(void)
    
   averageAdc_for_N_msec(100);
   Rx = (float)adc[0] / (float)dac;
-	 Rx -= 1.00;
+	Rx -= 1.00;
 	if (flagRelay)
 		Rx *= 10;
 	else
