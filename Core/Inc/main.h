@@ -68,7 +68,7 @@ void adcSum (void);
 void adcAverage (void);
 float getVoltage(uint16_t adc);
 float getAHT20 (void)	;
-float getUVIndex (uint16_t adcUV);
+float getUVIndex ();
 void clearEXTIs (void);
 void enableExtis (void);
 void timerTask (void);
@@ -80,7 +80,7 @@ float getCOppm(uint16_t adc);
 float getOxygenPercent(uint16_t adc);
 float getResistance(void);
 float getVoltageCurrent(void);
-float getNitratSensor(uint16_t adc);
+float getNitratSensor();
 void spirograph (void);
 void averageAdc_for_N_msec (uint16_t msec);
 void waiting_animation(void);
@@ -88,10 +88,10 @@ void dacWrite(uint16_t data);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define clk_Pin GPIO_PIN_3
-#define clk_GPIO_Port GPIOA
 #define relayPin GPIO_PIN_15
 #define relayPort GPIOB
+#define clk_Pin GPIO_PIN_3
+#define clk_GPIO_Port GPIOA
 #define data1_Pin GPIO_PIN_4
 #define data1_GPIO_Port GPIOA
 #define data2_Pin GPIO_PIN_5

@@ -53,3 +53,4 @@ datchick\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq
 datchick\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 datchick\main.o: ../Core/Inc/bmp180.h
 datchick\main.o: ../Core/Inc/radsens.h
+datchick\main.o: ../Core/Inc/TCS34725.h

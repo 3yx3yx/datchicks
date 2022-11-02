@@ -14,6 +14,7 @@ float getRadSens (void)
 		  regAddr++;
 	 }
 	 
-	 float rad = (((uint32_t)data[3] << 16) | ((uint16_t)data[4] << 8) | data[5]) / 10.0;
+	 //float rad = (((uint32_t)data[3] << 16) | ((uint16_t)data[4] << 8) | data[5]) / 10.0;
+	 float rad = (((uint32_t)data[6] << 16) | ((uint16_t)data[7] << 8) | data[8]) / 10.0;
         return rad;
  }
