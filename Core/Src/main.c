@@ -98,7 +98,10 @@ enum modulesId
 	ID_MODULE_NITRATES,
 	ID_MODULE_CO_GAS,
 	ID_MODULE_TEMP_FAST,
-	ID_MODULE_ULTRAV	
+	ID_MODULE_ULTRAV,
+	ID_MODULE_RED_CHANNEL,
+	ID_MODULE_GREEN_CHANNEL,
+	ID_MODULE_BLUE_CHANNEL
 };
 
 enum rj45Modules
@@ -1807,6 +1810,18 @@ int main(void)
 							b_p = (float)(r_t+g_t+b_t);
 							b_p = (float) b_t / ((float)b_p / 100.0);*/
 							displayFloat(result);
+							// RGB info output///////////////////////////////////////////////
+							sprintf(bufUsb, USB_STRING_FORMAT, currentModule, result);
+							CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+							HAL_Delay(100);
+							sprintf(bufUsb, USB_STRING_FORMAT, currentModule+100,(float) r_p);
+							CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+							HAL_Delay(100);
+							sprintf(bufUsb, USB_STRING_FORMAT, currentModule+200,(float) g_p);
+							CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
+							HAL_Delay(100);
+							sprintf(bufUsb, USB_STRING_FORMAT, currentModule+300,(float) b_p);
+							CDC_Transmit_FS((uint8_t*)bufUsb,strlen(bufUsb));
 							break ;
 						case ID_MODULE_HUMIDITY:
 							result=getAHT20();  
